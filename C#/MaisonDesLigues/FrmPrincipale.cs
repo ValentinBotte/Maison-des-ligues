@@ -34,11 +34,11 @@ namespace MaisonDesLigues
         }
         /// <summary>
         /// gestion de l'événement click du bouton quitter.
-        /// Demande de confirmation avant de quitetr l'application.
+        /// Demande de confirmation avant de quitter l'application.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CmdQuitter_Click(object sender, EventArgs e)
+        private void btnQuitter_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Voulez-vous quitter l'application ?", ConfigurationManager.AppSettings["TitreApplication"], MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
@@ -275,21 +275,26 @@ namespace MaisonDesLigues
             BtnEnregistrerIntervenant.Enabled = VerifBtnEnregistreIntervenant();
         }
 
-
-        ///// <summary>
-        ///// 
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //private void ChkDateBenevole_CheckedChanged(object sender, KeyEventArgs e)
-        //{
-
-        //}
+        /// <summary>
+        /// gestion de l'événement click du bouton quitter.
+        /// Demande de confirmation avant de quitter l'application.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnQuitter2_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Voulez-vous quitter l'application ?", ConfigurationManager.AppSettings["TitreApplication"], MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                UneConnexion.FermerConnexion();
+                Application.Exit();
+            }
+        }
         /// <summary>
         /// procedure privée permettant de faire appel à des procédure lorsque l'utilisateur check l'un des bouton radio
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+<<<<<<< HEAD
         //private void radGestionTypeTable_changed(object sender, EventArgs e)
         //{
         //    switch (((RadioButton)sender).Name)
@@ -319,22 +324,70 @@ namespace MaisonDesLigues
         //            throw new Exception("Erreur interne à l'application");
         //    }
         //}
+=======
+        private void radGestionTypeTable_changed(object sender, EventArgs e)
+        {
+            switch (((RadioButton)sender).Name)
+            {
+                case "radAtelier":
+                    this.gererAjoutAtelier();
+                    break;
+                case "radTheme":
+                    if (radTheme.Checked == true)
+                    {
+                        this.gererAjoutTheme();
+                    }
+                    break;
+                case "radVacation":
+                    if (radVacation.Checked == true)
+                    {
+                        this.gererAjoutVacation();
+                    }
+                    break;
+                case "radVacModif":
+                    if (radVacModif.Checked == true)
+                    {
+                        this.gererModifVacation();
+                    }
+                    break;
+                default:
+                    throw new Exception("Erreur interne à l'application");
+            }
+        }
+        private void gererAjoutAtelier()
+        {
+            grbModifVacation.Visible = false;
+            grbAjoutAtelier.Visible = true;
+            grbAjoutTheme.Visible = false;
+            grbAjoutVacation.Visible = false;
+            grbAjoutAtelier.Left = 179;
+            grbAjoutAtelier.Top = 75;
+        }
+        private void gererAjoutTheme()
+        {
+            grbAjoutAtelier.Visible = false;
+            grbAjoutTheme.Visible = true;
+            grbAjoutVacation.Visible = false;
+            grbModifVacation.Visible = false;
+            grbAjoutTheme.Left = 168;
+            grbAjoutTheme.Top = 75;
+>>>>>>> c#
 
+        }
+        private void gererAjoutVacation()
+        {
+            grbAjoutAtelier.Visible = false;
+            grbAjoutTheme.Visible = false;
+            grbAjoutVacation.Visible = true;
+            grbModifVacation.Visible = false;
+            grbAjoutVacation.Left = 139;
+            grbAjoutVacation.Top = 75;
 
+        }
+        private void gererModifVacation()
+        {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        }
 
 
     }
