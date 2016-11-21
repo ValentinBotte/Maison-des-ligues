@@ -14,7 +14,7 @@
 *.sln.docstates
 *.vcxproj.filters
 MaisonDesLigues\bin\Debug\*
-
+MaisonDesLigues/bin/Debug/*
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 *.userprefss
