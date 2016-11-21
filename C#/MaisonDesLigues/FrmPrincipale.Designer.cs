@@ -37,7 +37,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.TxtDateNaissance = new System.Windows.Forms.MaskedTextBox();
-            this.CmdQuitter = new System.Windows.Forms.Button();
+            this.btnQuitter = new System.Windows.Forms.Button();
             this.GrpTypeParticipant = new System.Windows.Forms.GroupBox();
             this.RadLicencie = new System.Windows.Forms.RadioButton();
             this.RadBenevole = new System.Windows.Forms.RadioButton();
@@ -70,14 +70,25 @@
             this.label17 = new System.Windows.Forms.Label();
             this.TabPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.grbAjoutAtelier = new System.Windows.Forms.GroupBox();
+            this.numAtPlacesMax = new System.Windows.Forms.NumericUpDown();
+            this.label14 = new System.Windows.Forms.Label();
+            this.BtnAjouterAtelier = new System.Windows.Forms.Button();
+            this.TxtLibelleAtelier = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnQuitter2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grbGestion = new System.Windows.Forms.GroupBox();
             this.radVacModif = new System.Windows.Forms.RadioButton();
             this.radVacation = new System.Windows.Forms.RadioButton();
             this.radTheme = new System.Windows.Forms.RadioButton();
             this.radAtelier = new System.Windows.Forms.RadioButton();
-            this.grbAjoutAtelier = new System.Windows.Forms.GroupBox();
+            this.grbAjoutTheme = new System.Windows.Forms.GroupBox();
+            this.grbModifVacation = new System.Windows.Forms.GroupBox();
+            this.grbAjoutVacation = new System.Windows.Forms.GroupBox();
             this.TabInscription.SuspendLayout();
             this.GrpBenevole.SuspendLayout();
             this.GrpTypeParticipant.SuspendLayout();
@@ -87,14 +98,17 @@
             this.GrpNuiteIntervenant.SuspendLayout();
             this.TabPrincipal.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.grbAjoutAtelier.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAtPlacesMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grbGestion.SuspendLayout();
+            this.grbModifVacation.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabInscription
             // 
             this.TabInscription.Controls.Add(this.GrpBenevole);
-            this.TabInscription.Controls.Add(this.CmdQuitter);
+            this.TabInscription.Controls.Add(this.btnQuitter);
             this.TabInscription.Controls.Add(this.GrpTypeParticipant);
             this.TabInscription.Controls.Add(this.GrpIdentite);
             this.TabInscription.Controls.Add(this.PicAffiche);
@@ -179,15 +193,15 @@
             this.TxtDateNaissance.ValidatingType = typeof(System.DateTime);
             this.TxtDateNaissance.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ChkDateBenevole_CheckedChanged);
             // 
-            // CmdQuitter
+            // btnQuitter
             // 
-            this.CmdQuitter.Location = new System.Drawing.Point(493, 180);
-            this.CmdQuitter.Name = "CmdQuitter";
-            this.CmdQuitter.Size = new System.Drawing.Size(144, 36);
-            this.CmdQuitter.TabIndex = 22;
-            this.CmdQuitter.Text = "Quitter";
-            this.CmdQuitter.UseVisualStyleBackColor = true;
-            this.CmdQuitter.Click += new System.EventHandler(this.CmdQuitter_Click);
+            this.btnQuitter.Location = new System.Drawing.Point(493, 180);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(144, 36);
+            this.btnQuitter.TabIndex = 22;
+            this.btnQuitter.Text = "Quitter";
+            this.btnQuitter.UseVisualStyleBackColor = true;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // GrpTypeParticipant
             // 
@@ -505,8 +519,10 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.grbModifVacation);
+            this.tabPage1.Controls.Add(this.grbAjoutTheme);
             this.tabPage1.Controls.Add(this.grbAjoutAtelier);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.btnQuitter2);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.grbGestion);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -517,14 +533,103 @@
             this.tabPage1.Text = "Gestion";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // grbAjoutAtelier
             // 
-            this.button1.Location = new System.Drawing.Point(655, 209);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 36);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "Quitter";
-            this.button1.UseVisualStyleBackColor = true;
+            this.grbAjoutAtelier.Controls.Add(this.numAtPlacesMax);
+            this.grbAjoutAtelier.Controls.Add(this.label14);
+            this.grbAjoutAtelier.Controls.Add(this.BtnAjouterAtelier);
+            this.grbAjoutAtelier.Controls.Add(this.TxtLibelleAtelier);
+            this.grbAjoutAtelier.Controls.Add(this.label13);
+            this.grbAjoutAtelier.Controls.Add(this.label12);
+            this.grbAjoutAtelier.Controls.Add(this.label11);
+            this.grbAjoutAtelier.Controls.Add(this.label10);
+            this.grbAjoutAtelier.Location = new System.Drawing.Point(46, 145);
+            this.grbAjoutAtelier.Name = "grbAjoutAtelier";
+            this.grbAjoutAtelier.Size = new System.Drawing.Size(564, 385);
+            this.grbAjoutAtelier.TabIndex = 24;
+            this.grbAjoutAtelier.TabStop = false;
+            this.grbAjoutAtelier.Text = "Ajout Atelier";
+            // 
+            // numAtPlacesMax
+            // 
+            this.numAtPlacesMax.Location = new System.Drawing.Point(216, 109);
+            this.numAtPlacesMax.Name = "numAtPlacesMax";
+            this.numAtPlacesMax.Size = new System.Drawing.Size(72, 20);
+            this.numAtPlacesMax.TabIndex = 7;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(51, 109);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(108, 13);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "Nombre Places Max :";
+            // 
+            // BtnAjouterAtelier
+            // 
+            this.BtnAjouterAtelier.Location = new System.Drawing.Point(310, 52);
+            this.BtnAjouterAtelier.Name = "BtnAjouterAtelier";
+            this.BtnAjouterAtelier.Size = new System.Drawing.Size(75, 23);
+            this.BtnAjouterAtelier.TabIndex = 5;
+            this.BtnAjouterAtelier.Text = "Ajouter";
+            this.BtnAjouterAtelier.UseVisualStyleBackColor = true;
+            // 
+            // TxtLibelleAtelier
+            // 
+            this.TxtLibelleAtelier.Location = new System.Drawing.Point(96, 54);
+            this.TxtLibelleAtelier.Name = "TxtLibelleAtelier";
+            this.TxtLibelleAtelier.Size = new System.Drawing.Size(193, 20);
+            this.TxtLibelleAtelier.TabIndex = 4;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(51, 54);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(43, 13);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Libelle :";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(6, 232);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(57, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Vacation";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(6, 144);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(45, 13);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Theme";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(6, 26);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(43, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Atelier";
+            // 
+            // btnQuitter2
+            // 
+            this.btnQuitter2.Location = new System.Drawing.Point(655, 209);
+            this.btnQuitter2.Name = "btnQuitter2";
+            this.btnQuitter2.Size = new System.Drawing.Size(144, 36);
+            this.btnQuitter2.TabIndex = 23;
+            this.btnQuitter2.Text = "Quitter";
+            this.btnQuitter2.UseVisualStyleBackColor = true;
+            this.btnQuitter2.Click += new System.EventHandler(this.btnQuitter2_Click);
             // 
             // pictureBox1
             // 
@@ -592,14 +697,33 @@
             this.radAtelier.Text = "Ajout Atelier";
             this.radAtelier.UseVisualStyleBackColor = true;
             // 
-            // grbAjoutAtelier
+            // grbAjoutTheme
             // 
-            this.grbAjoutAtelier.Location = new System.Drawing.Point(46, 145);
-            this.grbAjoutAtelier.Name = "grbAjoutAtelier";
-            this.grbAjoutAtelier.Size = new System.Drawing.Size(564, 100);
-            this.grbAjoutAtelier.TabIndex = 24;
-            this.grbAjoutAtelier.TabStop = false;
-            this.grbAjoutAtelier.Text = "Ajout Atelier";
+            this.grbAjoutTheme.Location = new System.Drawing.Point(655, 430);
+            this.grbAjoutTheme.Name = "grbAjoutTheme";
+            this.grbAjoutTheme.Size = new System.Drawing.Size(200, 100);
+            this.grbAjoutTheme.TabIndex = 25;
+            this.grbAjoutTheme.TabStop = false;
+            this.grbAjoutTheme.Text = "Ajout Theme";
+            // 
+            // grbModifVacation
+            // 
+            this.grbModifVacation.Controls.Add(this.grbAjoutVacation);
+            this.grbModifVacation.Location = new System.Drawing.Point(663, 290);
+            this.grbModifVacation.Name = "grbModifVacation";
+            this.grbModifVacation.Size = new System.Drawing.Size(200, 100);
+            this.grbModifVacation.TabIndex = 26;
+            this.grbModifVacation.TabStop = false;
+            this.grbModifVacation.Text = "Modification Vac";
+            // 
+            // grbAjoutVacation
+            // 
+            this.grbAjoutVacation.Location = new System.Drawing.Point(113, 87);
+            this.grbAjoutVacation.Name = "grbAjoutVacation";
+            this.grbAjoutVacation.Size = new System.Drawing.Size(200, 100);
+            this.grbAjoutVacation.TabIndex = 27;
+            this.grbAjoutVacation.TabStop = false;
+            this.grbAjoutVacation.Text = "Ajout Vacation";
             // 
             // FrmPrincipale
             // 
@@ -624,9 +748,13 @@
             this.GrpNuiteIntervenant.PerformLayout();
             this.TabPrincipal.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.grbAjoutAtelier.ResumeLayout(false);
+            this.grbAjoutAtelier.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAtPlacesMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grbGestion.ResumeLayout(false);
             this.grbGestion.PerformLayout();
+            this.grbModifVacation.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -641,7 +769,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MaskedTextBox TxtDateNaissance;
-        private System.Windows.Forms.Button CmdQuitter;
+        private System.Windows.Forms.Button btnQuitter;
         private System.Windows.Forms.GroupBox GrpTypeParticipant;
         private System.Windows.Forms.RadioButton RadLicencie;
         private System.Windows.Forms.RadioButton RadBenevole;
@@ -679,8 +807,19 @@
         private System.Windows.Forms.RadioButton radVacation;
         private System.Windows.Forms.RadioButton radTheme;
         private System.Windows.Forms.RadioButton radAtelier;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnQuitter2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox grbAjoutAtelier;
+        private System.Windows.Forms.Button BtnAjouterAtelier;
+        private System.Windows.Forms.TextBox TxtLibelleAtelier;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown numAtPlacesMax;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox grbModifVacation;
+        private System.Windows.Forms.GroupBox grbAjoutVacation;
+        private System.Windows.Forms.GroupBox grbAjoutTheme;
     }
 }

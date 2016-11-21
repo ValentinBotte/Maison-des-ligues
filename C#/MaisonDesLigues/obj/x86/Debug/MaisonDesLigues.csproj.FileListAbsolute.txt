@@ -62,3 +62,13 @@ C:\Users\botte.v\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\Ma
 C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\bin\Debug\MaisonDesLigues.exe.config
 C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.exe
 C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.pdb
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\bin\Debug\MaisonDesLigues.exe
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\bin\Debug\MaisonDesLigues.pdb
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\bin\Debug\ComposantNuite.dll
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\bin\Debug\Oracle.DataAccess.dll
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\bin\Debug\ComposantNuite.pdb
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.csprojResolveAssemblyReference.cache
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.FrmLogin.resources
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.FrmPrincipale.resources
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.Properties.Resources.resources
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.csproj.GenerateResource.Cache
