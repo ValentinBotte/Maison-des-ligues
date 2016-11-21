@@ -13,9 +13,11 @@
 *.userosscache
 *.sln.docstates
 *.vcxproj.filters
+MaisonDesLigues\bin\Debug\*
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
+*.userprefss
 
 # Build results
 [Dd]ebug/
