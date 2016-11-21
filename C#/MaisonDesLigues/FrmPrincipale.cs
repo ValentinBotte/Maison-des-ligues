@@ -294,7 +294,6 @@ namespace MaisonDesLigues
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-<<<<<<< HEAD
         //private void radGestionTypeTable_changed(object sender, EventArgs e)
         //{
         //    switch (((RadioButton)sender).Name)
@@ -324,7 +323,6 @@ namespace MaisonDesLigues
         //            throw new Exception("Erreur interne à l'application");
         //    }
         //}
-=======
         private void radGestionTypeTable_changed(object sender, EventArgs e)
         {
             switch (((RadioButton)sender).Name)
@@ -371,7 +369,6 @@ namespace MaisonDesLigues
             grbModifVacation.Visible = false;
             grbAjoutTheme.Left = 168;
             grbAjoutTheme.Top = 75;
->>>>>>> c#
 
         }
         private void gererAjoutVacation()
