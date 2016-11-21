@@ -70,6 +70,9 @@
             this.label17 = new System.Windows.Forms.Label();
             this.TabPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.grbModifVacation = new System.Windows.Forms.GroupBox();
+            this.grbAjoutVacation = new System.Windows.Forms.GroupBox();
+            this.grbAjoutTheme = new System.Windows.Forms.GroupBox();
             this.grbAjoutAtelier = new System.Windows.Forms.GroupBox();
             this.numAtPlacesMax = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
@@ -86,9 +89,6 @@
             this.radVacation = new System.Windows.Forms.RadioButton();
             this.radTheme = new System.Windows.Forms.RadioButton();
             this.radAtelier = new System.Windows.Forms.RadioButton();
-            this.grbAjoutTheme = new System.Windows.Forms.GroupBox();
-            this.grbModifVacation = new System.Windows.Forms.GroupBox();
-            this.grbAjoutVacation = new System.Windows.Forms.GroupBox();
             this.TabInscription.SuspendLayout();
             this.GrpBenevole.SuspendLayout();
             this.GrpTypeParticipant.SuspendLayout();
@@ -102,7 +102,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numAtPlacesMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grbGestion.SuspendLayout();
-            this.grbModifVacation.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabInscription
@@ -213,7 +212,7 @@
             this.GrpTypeParticipant.Size = new System.Drawing.Size(453, 58);
             this.GrpTypeParticipant.TabIndex = 21;
             this.GrpTypeParticipant.TabStop = false;
-            this.GrpTypeParticipant.Text = "Tupe Participant";
+            this.GrpTypeParticipant.Text = "Type Participant";
             // 
             // RadLicencie
             // 
@@ -519,6 +518,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.grbAjoutVacation);
             this.tabPage1.Controls.Add(this.grbModifVacation);
             this.tabPage1.Controls.Add(this.grbAjoutTheme);
             this.tabPage1.Controls.Add(this.grbAjoutAtelier);
@@ -532,6 +532,36 @@
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "Gestion";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // grbModifVacation
+            // 
+            this.grbModifVacation.Location = new System.Drawing.Point(663, 290);
+            this.grbModifVacation.Name = "grbModifVacation";
+            this.grbModifVacation.Size = new System.Drawing.Size(200, 100);
+            this.grbModifVacation.TabIndex = 26;
+            this.grbModifVacation.TabStop = false;
+            this.grbModifVacation.Text = "Modification Vac";
+            this.grbModifVacation.Visible = false;
+            // 
+            // grbAjoutVacation
+            // 
+            this.grbAjoutVacation.Location = new System.Drawing.Point(760, 120);
+            this.grbAjoutVacation.Name = "grbAjoutVacation";
+            this.grbAjoutVacation.Size = new System.Drawing.Size(200, 100);
+            this.grbAjoutVacation.TabIndex = 27;
+            this.grbAjoutVacation.TabStop = false;
+            this.grbAjoutVacation.Text = "Ajout Vacation";
+            this.grbAjoutVacation.Visible = false;
+            // 
+            // grbAjoutTheme
+            // 
+            this.grbAjoutTheme.Location = new System.Drawing.Point(655, 430);
+            this.grbAjoutTheme.Name = "grbAjoutTheme";
+            this.grbAjoutTheme.Size = new System.Drawing.Size(200, 100);
+            this.grbAjoutTheme.TabIndex = 25;
+            this.grbAjoutTheme.TabStop = false;
+            this.grbAjoutTheme.Text = "Ajout Theme";
+            this.grbAjoutTheme.Visible = false;
             // 
             // grbAjoutAtelier
             // 
@@ -549,6 +579,8 @@
             this.grbAjoutAtelier.TabIndex = 24;
             this.grbAjoutAtelier.TabStop = false;
             this.grbAjoutAtelier.Text = "Ajout Atelier";
+            this.grbAjoutAtelier.UseWaitCursor = true;
+            this.grbAjoutAtelier.Visible = false;
             // 
             // numAtPlacesMax
             // 
@@ -556,6 +588,7 @@
             this.numAtPlacesMax.Name = "numAtPlacesMax";
             this.numAtPlacesMax.Size = new System.Drawing.Size(72, 20);
             this.numAtPlacesMax.TabIndex = 7;
+            this.numAtPlacesMax.UseWaitCursor = true;
             // 
             // label14
             // 
@@ -565,6 +598,7 @@
             this.label14.Size = new System.Drawing.Size(108, 13);
             this.label14.TabIndex = 6;
             this.label14.Text = "Nombre Places Max :";
+            this.label14.UseWaitCursor = true;
             // 
             // BtnAjouterAtelier
             // 
@@ -574,6 +608,7 @@
             this.BtnAjouterAtelier.TabIndex = 5;
             this.BtnAjouterAtelier.Text = "Ajouter";
             this.BtnAjouterAtelier.UseVisualStyleBackColor = true;
+            this.BtnAjouterAtelier.UseWaitCursor = true;
             // 
             // TxtLibelleAtelier
             // 
@@ -581,6 +616,7 @@
             this.TxtLibelleAtelier.Name = "TxtLibelleAtelier";
             this.TxtLibelleAtelier.Size = new System.Drawing.Size(193, 20);
             this.TxtLibelleAtelier.TabIndex = 4;
+            this.TxtLibelleAtelier.UseWaitCursor = true;
             // 
             // label13
             // 
@@ -590,6 +626,7 @@
             this.label13.Size = new System.Drawing.Size(43, 13);
             this.label13.TabIndex = 3;
             this.label13.Text = "Libelle :";
+            this.label13.UseWaitCursor = true;
             // 
             // label12
             // 
@@ -600,6 +637,7 @@
             this.label12.Size = new System.Drawing.Size(57, 13);
             this.label12.TabIndex = 2;
             this.label12.Text = "Vacation";
+            this.label12.UseWaitCursor = true;
             // 
             // label11
             // 
@@ -610,6 +648,7 @@
             this.label11.Size = new System.Drawing.Size(45, 13);
             this.label11.TabIndex = 1;
             this.label11.Text = "Theme";
+            this.label11.UseWaitCursor = true;
             // 
             // label10
             // 
@@ -620,6 +659,7 @@
             this.label10.Size = new System.Drawing.Size(43, 13);
             this.label10.TabIndex = 0;
             this.label10.Text = "Atelier";
+            this.label10.UseWaitCursor = true;
             // 
             // btnQuitter2
             // 
@@ -663,6 +703,7 @@
             this.radVacModif.TabStop = true;
             this.radVacModif.Text = "Modification Vac";
             this.radVacModif.UseVisualStyleBackColor = true;
+            this.radVacModif.CheckedChanged += new System.EventHandler(this.radGestionTypeTable_changed);
             // 
             // radVacation
             // 
@@ -674,6 +715,7 @@
             this.radVacation.TabStop = true;
             this.radVacation.Text = "Ajout Vacation";
             this.radVacation.UseVisualStyleBackColor = true;
+            this.radVacation.CheckedChanged += new System.EventHandler(this.radGestionTypeTable_changed);
             // 
             // radTheme
             // 
@@ -685,6 +727,7 @@
             this.radTheme.TabStop = true;
             this.radTheme.Text = "Ajout Theme";
             this.radTheme.UseVisualStyleBackColor = true;
+            this.radTheme.CheckedChanged += new System.EventHandler(this.radGestionTypeTable_changed);
             // 
             // radAtelier
             // 
@@ -696,34 +739,7 @@
             this.radAtelier.TabStop = true;
             this.radAtelier.Text = "Ajout Atelier";
             this.radAtelier.UseVisualStyleBackColor = true;
-            // 
-            // grbAjoutTheme
-            // 
-            this.grbAjoutTheme.Location = new System.Drawing.Point(655, 430);
-            this.grbAjoutTheme.Name = "grbAjoutTheme";
-            this.grbAjoutTheme.Size = new System.Drawing.Size(200, 100);
-            this.grbAjoutTheme.TabIndex = 25;
-            this.grbAjoutTheme.TabStop = false;
-            this.grbAjoutTheme.Text = "Ajout Theme";
-            // 
-            // grbModifVacation
-            // 
-            this.grbModifVacation.Controls.Add(this.grbAjoutVacation);
-            this.grbModifVacation.Location = new System.Drawing.Point(663, 290);
-            this.grbModifVacation.Name = "grbModifVacation";
-            this.grbModifVacation.Size = new System.Drawing.Size(200, 100);
-            this.grbModifVacation.TabIndex = 26;
-            this.grbModifVacation.TabStop = false;
-            this.grbModifVacation.Text = "Modification Vac";
-            // 
-            // grbAjoutVacation
-            // 
-            this.grbAjoutVacation.Location = new System.Drawing.Point(113, 87);
-            this.grbAjoutVacation.Name = "grbAjoutVacation";
-            this.grbAjoutVacation.Size = new System.Drawing.Size(200, 100);
-            this.grbAjoutVacation.TabIndex = 27;
-            this.grbAjoutVacation.TabStop = false;
-            this.grbAjoutVacation.Text = "Ajout Vacation";
+            this.radAtelier.CheckedChanged += new System.EventHandler(this.radGestionTypeTable_changed);
             // 
             // FrmPrincipale
             // 
@@ -754,7 +770,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grbGestion.ResumeLayout(false);
             this.grbGestion.PerformLayout();
-            this.grbModifVacation.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
