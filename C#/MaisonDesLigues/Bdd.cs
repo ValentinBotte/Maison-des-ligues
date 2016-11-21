@@ -44,8 +44,12 @@ namespace BaseDeDonnees
                 /// on va remplacer dans la chaine de connexion les paramètres par le login et le pwd saisis
                 ///dans les zones de texte. Pour ça on va utiliser la méthode Format de la classe String.                /// 
                 /// </remarks>
-                CnOracle = new OracleConnection(string.Format(CnString.ConnectionString, UnLogin, UnPwd));
-                CnOracle.Open();
+                CnOracle = new OracleConnection(string.Format(CnString.ConnectionString,
+                                                ConfigurationManager.AppSettings["SERVERIN"],
+                                                ConfigurationManager.AppSettings["PORTIN"],
+                                                ConfigurationManager.AppSettings["SID"],
+                                                UnLogin,
+                                                UnPwd));
             }
             catch (OracleException Oex)
             {

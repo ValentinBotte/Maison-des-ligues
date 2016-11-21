@@ -30,3 +30,6 @@ E:\cned\2012-2013\PPE_M2L\CNED_ASSIZ\Envoi_CNED\MaisonDesLigues_etudiants\Maison
 C:\Users\nicoli.r\Documents\Maison-des-ligues\MaisonDesLigues\bin\Debug\MaisonDesLigues.exe.config
 C:\Users\nicoli.r\Documents\Maison-des-ligues\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.exe
 C:\Users\nicoli.r\Documents\Maison-des-ligues\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.pdb
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\bin\Debug\MaisonDesLigues.exe.config
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.exe
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.pdb
