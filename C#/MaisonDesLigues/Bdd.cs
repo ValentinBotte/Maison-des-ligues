@@ -10,7 +10,7 @@ using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;  // bibliothèque pour les expressions régulières
 using MaisonDesLigues;
 
-
+ 
 
 namespace BaseDeDonnees
 {
@@ -36,20 +36,21 @@ namespace BaseDeDonnees
         {
             try
             {
-                /// <remarks>on commence par récupérer dans CnString les informations contenues dans le fichier app.config
-                /// pour la connectionString de nom StrConnMdl
-                /// </remarks>
+                // on commence par récupérer dans CnString les informations contenues dans le fichier app.config
+                // pour la connectionString de nom StrConnMdl
+                //
                 ConnectionStringSettings CnString = ConfigurationManager.ConnectionStrings["StrConnMdl"];
-                ///<remarks>
-                /// on va remplacer dans la chaine de connexion les paramètres par le login et le pwd saisis
-                ///dans les zones de texte. Pour ça on va utiliser la méthode Format de la classe String.                /// 
-                /// </remarks>
+                //
+                // on va remplacer dans la chaine de connexion les paramètres par le login et le pwd saisis
+                //dans les zones de texte. Pour ça on va utiliser la méthode Format de la classe String.                /// 
+                //
                 CnOracle = new OracleConnection(string.Format(CnString.ConnectionString,
                                                 ConfigurationManager.AppSettings["SERVERIN"],
                                                 ConfigurationManager.AppSettings["PORTIN"],
                                                 ConfigurationManager.AppSettings["SID"],
                                                 UnLogin,
                                                 UnPwd));
+                CnOracle.Open();
             }
             catch (OracleException Oex)
             {
