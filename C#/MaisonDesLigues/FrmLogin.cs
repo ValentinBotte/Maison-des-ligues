@@ -21,6 +21,7 @@ namespace MaisonDesLigues
             InitializeComponent();
             TitreApplication = ConfigurationManager.AppSettings["TitreApplication"];
             this.Text = TitreApplication;
+            AcceptButton = CmdOk;
         }
         internal BaseDeDonnees.Bdd UneConnexion;
         internal String TitreApplication;
