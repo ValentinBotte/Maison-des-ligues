@@ -8,9 +8,6 @@ using System.Windows.Forms;
 using BaseDeDonnees;
 using System.Configuration;
 
-
-
-
 namespace MaisonDesLigues
 {
     public partial class FrmLogin : Form
