@@ -69,14 +69,14 @@ insert into qualite(id, libellequalite) values (SEQQUALITE.nextval, 'Autre');
 -- -----------------------------------------------------------------------------
 --       TABLE : ATELIER
 --
-/*
+
 insert into ATELIER(id, libelleatelier, nbplacesmaxi) values(seqatelier.nextval, 'LE CLUB ET SON PROJET', 60);
 insert into ATELIER(id, libelleatelier, nbplacesmaxi) values(seqatelier.nextval, 'LE FONCTIONNEMENT DU CLUB', 80);
 insert into ATELIER(id, libelleatelier, nbplacesmaxi) values(seqatelier.nextval, 'LES OUTILS À DISPOSITION ET REMIS AUX CLUBS', 110);
 insert into ATELIER(id, libelleatelier, nbplacesmaxi) values(seqatelier.nextval, 'OBSERVATOIRE DES MÉTIERS DE L’ESCRIME', 60);
 insert into ATELIER(id, libelleatelier, nbplacesmaxi) values(seqatelier.nextval, 'I. F. F. E', 70);
 insert into ATELIER(id, libelleatelier, nbplacesmaxi) values(seqatelier.nextval, 'DÉVELOPPEMENT DURABLE', 60);
-*/
+
 -- -----------------------------------------------------------------------------
 --       TABLE : STATUT
 --

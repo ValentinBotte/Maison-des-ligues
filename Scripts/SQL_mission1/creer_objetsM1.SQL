@@ -83,14 +83,14 @@ create sequence SEQPAIEMENT
   start with 1;
 create public synonym SEQPAIEMENT for SEQPAIEMENT;
 
-/*
+
 drop sequence  SEQATELIER;
 drop public  synonym SEQATELIER;
 create sequence SEQATELIER
   increment by 1
   start with 1;
 create public synonym SEQATELIER for SEQATELIER;
-*/
+
 
 drop sequence  SEQPARTICIPANT;
 drop public synonym SEQPARTICIPANT;
