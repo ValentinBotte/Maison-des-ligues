@@ -34,12 +34,14 @@ namespace BaseDeDonnees
         /// <param name="UnPwd">mot de passe utilisateur</param>
         public Bdd(String UnLogin, String UnPwd)
         {
+            // on commence par récupérer dans CnString les informations contenues dans le fichier app.config
+            // pour la connectionString de nom StrConnMdl
+            
+            ConnectionStringSettings CnString = ConfigurationManager.ConnectionStrings["StrConnMdl"];
             try
             {
-                // on commence par récupérer dans CnString les informations contenues dans le fichier app.config
-                // pour la connectionString de nom StrConnMdl
-                //
-                ConnectionStringSettings CnString = ConfigurationManager.ConnectionStrings["StrConnMdl"];
+                
+              
                 //
                 // on va remplacer dans la chaine de connexion les paramètres par le login et le pwd saisis
                 //dans les zones de texte. Pour ça on va utiliser la méthode Format de la classe String.                /// 
@@ -54,7 +56,23 @@ namespace BaseDeDonnees
             }
             catch (OracleException Oex)
             {
-                throw new Exception("Erreur à la connexion" + Oex.Message);
+                try
+                {
+                    //Si la connexion sur le réseau local ne fonctionne pas, utilisation de la connexion distante          
+                    CnOracle = new OracleConnection(string.Format(CnString.ConnectionString,
+                                               ConfigurationManager.AppSettings["SERVEROUT"],
+                                               ConfigurationManager.AppSettings["PORTOUT"],
+                                               ConfigurationManager.AppSettings["SID"],
+                                               UnLogin,
+                                               UnPwd));
+                    CnOracle.Open();
+
+                }
+                catch
+                {
+                    //Si aucune connexion ne fonctionne, affichage d'un message d'erreur
+                    throw new Exception("Erreur à la connexion " + Oex.Message);
+                }
             }
         }
         /// <summary>
