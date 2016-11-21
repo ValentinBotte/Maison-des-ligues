@@ -59,3 +59,6 @@ C:\Users\botte.v\Documents\Maison-des-ligues\C#\MaisonDesLigues\bin\Debug\Maison
 C:\Users\botte.v\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.exe
 C:\Users\botte.v\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.pdb
 >>>>>>> master
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\bin\Debug\MaisonDesLigues.exe.config
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.exe
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.pdb
