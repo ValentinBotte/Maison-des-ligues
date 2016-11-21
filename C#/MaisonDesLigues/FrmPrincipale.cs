@@ -358,8 +358,6 @@ namespace MaisonDesLigues
             grbAjoutAtelier.Visible = true;
             grbAjoutTheme.Visible = false;
             grbAjoutVacation.Visible = false;
-            grbAjoutAtelier.Left = 179;
-            grbAjoutAtelier.Top = 75;
         }
         private void gererAjoutTheme()
         {
@@ -367,8 +365,8 @@ namespace MaisonDesLigues
             grbAjoutTheme.Visible = true;
             grbAjoutVacation.Visible = false;
             grbModifVacation.Visible = false;
-            grbAjoutTheme.Left = 168;
-            grbAjoutTheme.Top = 75;
+            grbAjoutTheme.Location = new System.Drawing.Point(46, 145);
+
 
         }
         private void gererAjoutVacation()
@@ -377,11 +375,21 @@ namespace MaisonDesLigues
             grbAjoutTheme.Visible = false;
             grbAjoutVacation.Visible = true;
             grbModifVacation.Visible = false;
-            grbAjoutVacation.Left = 139;
-            grbAjoutVacation.Top = 75;
+            grbAjoutVacation.Location = new System.Drawing.Point(46, 145);
+
 
         }
         private void gererModifVacation()
+        {
+            grbAjoutAtelier.Visible = false;
+            grbAjoutTheme.Visible = false;
+            grbAjoutVacation.Visible = false;
+            grbModifVacation.Visible = true;
+            grbModifVacation.Location = new System.Drawing.Point(46, 145);
+
+        }
+
+        private void radAtelier_CheckedChanged(object sender, EventArgs e)
         {
 
         }
