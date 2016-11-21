@@ -41,10 +41,13 @@ C:\Users\raimon.d\Desktop\PPE\VisualStudio\MaisonDesLigues_etudiants\MaisonDesLi
 C:\Users\raimon.d\Desktop\PPE\VisualStudio\MaisonDesLigues_etudiants\MaisonDesLigues_etudiants\MaisonDesLigues_etudiants\MaisonDesLigues\bin\Debug\ComposantNuite.pdb
 C:\Users\raimon.d\Desktop\PPE\VisualStudio\MaisonDesLigues_etudiants\MaisonDesLigues_etudiants\MaisonDesLigues_etudiants\MaisonDesLigues\bin\Debug\Oracle.DataAccess.dll
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\botte.v\Documents\Maison-des-ligues\C#\MaisonDesLigues\bin\Debug\MaisonDesLigues.exe.config
 C:\Users\botte.v\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.exe
 C:\Users\botte.v\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.pdb
 =======
+=======
+>>>>>>> c#
 C:\Users\nicoli.r\Documents\Maison-des-ligues\C#\MaisonDesLigues\bin\Debug\MaisonDesLigues.exe.config
 C:\Users\nicoli.r\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.exe
 C:\Users\nicoli.r\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.pdb
@@ -58,4 +61,15 @@ C:\Users\nicoli.r\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\M
 C:\Users\nicoli.r\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.FrmPrincipale.resources
 C:\Users\nicoli.r\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.Properties.Resources.resources
 C:\Users\nicoli.r\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.csproj.GenerateResource.Cache
+<<<<<<< HEAD
+>>>>>>> c#
+=======
+=======
+C:\Users\botte.v\Documents\Maison-des-ligues\C#\MaisonDesLigues\bin\Debug\MaisonDesLigues.exe.config
+C:\Users\botte.v\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.exe
+C:\Users\botte.v\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.pdb
+>>>>>>> master
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\bin\Debug\MaisonDesLigues.exe.config
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.exe
+C:\Users\raimon.d\Documents\Maison-des-ligues\C#\MaisonDesLigues\obj\x86\Debug\MaisonDesLigues.pdb
 >>>>>>> c#
