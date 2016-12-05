@@ -32,7 +32,7 @@ namespace BaseDeDonnees
         /// </summary>
         /// <param name="UnLogin">login utilisateur</param>
         /// <param name="UnPwd">mot de passe utilisateur</param>
-        public Bdd(String UnLogin, String UnPwd)
+        public  Bdd(String UnLogin, String UnPwd)
         {
             // on commence par récupérer dans CnString les informations contenues dans le fichier app.config
             // pour la connectionString de nom StrConnMdl
@@ -360,5 +360,28 @@ namespace BaseDeDonnees
 
         }
 
+        /// <summary>
+        /// Fonction permettant d'ajouter un nouvel atelier
+        /// </summary>
+        /// <param name="Libelle">Libelle de l'atelier</param>
+        /// <param name="NbPlacesMaxi">Nombre de places que peut accueillir l'atelier</param>
+        public void ajoutAtelier(string Libelle, int NbPlacesMaxi)
+        {
+
+            UneOracleCommand = new OracleCommand("insertionAtelier", CnOracle);
+            UneOracleCommand.CommandType = CommandType.StoredProcedure;
+            this.ParamNouvelAtelier(UneOracleCommand, Libelle, NbPlacesMaxi);
+            UneOracleCommand.ExecuteNonQuery();
+            MessageBox.Show("ajout atelier effectuée");
+        }
+
+        /// <summary>
+        /// Paramètres necessaire pour l'ajout d'un atelier, convertis les types c# en types oracles
+        /// </summary>
+        private void ParamNouvelAtelier(OracleCommand Cmd, String pLibelle, int pNbPlaces)
+        {
+            Cmd.Parameters.Add("pLibelle", OracleDbType.Varchar2, ParameterDirection.Input).Value = pLibelle;
+            Cmd.Parameters.Add("pPrenom", OracleDbType.Int64, ParameterDirection.Input).Value = pNbPlaces;
+        }
     }
 }
