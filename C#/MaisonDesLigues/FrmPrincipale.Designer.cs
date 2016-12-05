@@ -586,7 +586,7 @@
             this.grbAjoutTheme.Controls.Add(this.btnAjoutTheme);
             this.grbAjoutTheme.Controls.Add(this.cmbAtelierTheme);
             this.grbAjoutTheme.Controls.Add(this.label19);
-            this.grbAjoutTheme.Location = new System.Drawing.Point(810, 312);
+            this.grbAjoutTheme.Location = new System.Drawing.Point(701, 283);
             this.grbAjoutTheme.Name = "grbAjoutTheme";
             this.grbAjoutTheme.Size = new System.Drawing.Size(322, 192);
             this.grbAjoutTheme.TabIndex = 25;
@@ -634,6 +634,7 @@
             this.btnAjoutTheme.TabIndex = 2;
             this.btnAjoutTheme.Text = "Ajouter";
             this.btnAjoutTheme.UseVisualStyleBackColor = true;
+            this.btnAjoutTheme.Click += new System.EventHandler(this.btnAjoutTheme_Click);
             // 
             // cmbAtelierTheme
             // 

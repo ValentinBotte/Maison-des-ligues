@@ -311,6 +311,17 @@ namespace MaisonDesLigues
                     if (radTheme.Checked == true)
                     {
                         this.gererGroupBox(grbAjoutTheme);
+                        if (UneConnexion.ObtenirDonnesOracle("atelier").Rows.Count > 0)
+                        {
+                            cmbAtelierTheme.DataSource = UneConnexion.ObtenirDonnesOracle("ATELIER");
+                            cmbAtelierTheme.DisplayMember = "LIBELLEATELIER";
+                            cmbAtelierTheme.ValueMember = "ID";
+                            cmbAtelierTheme.Enabled = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Il existe aucun atelier");
+                        }
                     }
                     break;
                 case "radVacation":
@@ -348,6 +359,11 @@ namespace MaisonDesLigues
             {
                 MessageBox.Show("Merci de renseigner tout les champs");
             }
+        }
+
+        private void btnAjoutTheme_Click(object sender, EventArgs e)
+        {
+            UneConnexion.ajoutTheme(Convert.ToInt32(this.cmbAtelierTheme.SelectedValue), Convert.ToInt32(this.numAjoutTheme.Value), Convert.ToString(this.txtAjoutTheme.Text));
         }
     }
 }
