@@ -46,7 +46,7 @@ namespace MaisonDesLigues
                 Application.Exit();
             }
         }
-
+        /// TODO COMMENTAIRE !!!!
         private void RadTypeParticipant_Changed(object sender, EventArgs e)
         {
             switch (((RadioButton)sender).Name)
@@ -323,6 +323,8 @@ namespace MaisonDesLigues
                     throw new Exception("Erreur interne à l'application");
             }
         }
+        /// TODO COMMENTAIRE ??
+
         private void gererAjoutAtelier()
         {
             grbModifVacation.Visible = false;
@@ -330,6 +332,8 @@ namespace MaisonDesLigues
             grbAjoutTheme.Visible = false;
             grbAjoutVacation.Visible = false;
         }
+        /// TODO COMMENTAIRE ??
+        
         private void gererAjoutTheme()
         {
             grbAjoutAtelier.Visible = false;
@@ -340,6 +344,8 @@ namespace MaisonDesLigues
 
 
         }
+        /// TODO COMMENTAIRE ??
+        
         private void gererAjoutVacation()
         {
             grbAjoutAtelier.Visible = false;
@@ -350,6 +356,8 @@ namespace MaisonDesLigues
 
 
         }
+        /// TODO COMMENTAIRE ??
+        
         private void gererModifVacation()
         {
             grbAjoutAtelier.Visible = false;
@@ -359,12 +367,5 @@ namespace MaisonDesLigues
             grbModifVacation.Location = new System.Drawing.Point(46, 145);
 
         }
-
-        private void radAtelier_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
     }
 }
