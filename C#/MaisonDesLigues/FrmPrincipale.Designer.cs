@@ -87,7 +87,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.dateAjoutVacation = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
-            this.mumAjoutVacation = new System.Windows.Forms.NumericUpDown();
+            this.numAjoutVacation = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.btnAjoutVacation = new System.Windows.Forms.Button();
             this.cmbAtelierVacation = new System.Windows.Forms.ComboBox();
@@ -104,7 +104,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.btnModifVac = new System.Windows.Forms.Button();
-            this.cmdAtelierModif = new System.Windows.Forms.ComboBox();
+            this.cmbAtelierModif = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.grbAjoutAtelier = new System.Windows.Forms.GroupBox();
             this.numAtPlacesMax = new System.Windows.Forms.NumericUpDown();
@@ -135,7 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.minFin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minDebut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heureDebut)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mumAjoutVacation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAjoutVacation)).BeginInit();
             this.grbModifVacation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minEnd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heureEnd)).BeginInit();
@@ -597,9 +597,24 @@
             // numAjoutTheme
             // 
             this.numAjoutTheme.Location = new System.Drawing.Point(89, 115);
+            this.numAjoutTheme.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numAjoutTheme.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numAjoutTheme.Name = "numAjoutTheme";
             this.numAjoutTheme.Size = new System.Drawing.Size(73, 20);
             this.numAjoutTheme.TabIndex = 6;
+            this.numAjoutTheme.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label10
             // 
@@ -663,12 +678,12 @@
             this.grbAjoutVacation.Controls.Add(this.label15);
             this.grbAjoutVacation.Controls.Add(this.dateAjoutVacation);
             this.grbAjoutVacation.Controls.Add(this.label12);
-            this.grbAjoutVacation.Controls.Add(this.mumAjoutVacation);
+            this.grbAjoutVacation.Controls.Add(this.numAjoutVacation);
             this.grbAjoutVacation.Controls.Add(this.label11);
             this.grbAjoutVacation.Controls.Add(this.btnAjoutVacation);
             this.grbAjoutVacation.Controls.Add(this.cmbAtelierVacation);
             this.grbAjoutVacation.Controls.Add(this.label16);
-            this.grbAjoutVacation.Location = new System.Drawing.Point(70, 390);
+            this.grbAjoutVacation.Location = new System.Drawing.Point(46, 395);
             this.grbAjoutVacation.Name = "grbAjoutVacation";
             this.grbAjoutVacation.Size = new System.Drawing.Size(564, 375);
             this.grbAjoutVacation.TabIndex = 27;
@@ -758,23 +773,23 @@
             this.label12.TabIndex = 5;
             this.label12.Text = "Jour :";
             // 
-            // mumAjoutVacation
+            // numAjoutVacation
             // 
-            this.mumAjoutVacation.Location = new System.Drawing.Point(102, 92);
-            this.mumAjoutVacation.Maximum = new decimal(new int[] {
+            this.numAjoutVacation.Location = new System.Drawing.Point(102, 92);
+            this.numAjoutVacation.Maximum = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.mumAjoutVacation.Minimum = new decimal(new int[] {
+            this.numAjoutVacation.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.mumAjoutVacation.Name = "mumAjoutVacation";
-            this.mumAjoutVacation.Size = new System.Drawing.Size(92, 20);
-            this.mumAjoutVacation.TabIndex = 4;
-            this.mumAjoutVacation.Value = new decimal(new int[] {
+            this.numAjoutVacation.Name = "numAjoutVacation";
+            this.numAjoutVacation.Size = new System.Drawing.Size(92, 20);
+            this.numAjoutVacation.TabIndex = 4;
+            this.numAjoutVacation.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -797,6 +812,7 @@
             this.btnAjoutVacation.TabIndex = 2;
             this.btnAjoutVacation.Text = "Ajouter";
             this.btnAjoutVacation.UseVisualStyleBackColor = true;
+            this.btnAjoutVacation.Click += new System.EventHandler(this.btnAjoutVacation_Click);
             // 
             // cmbAtelierVacation
             // 
@@ -828,7 +844,7 @@
             this.grbModifVacation.Controls.Add(this.label22);
             this.grbModifVacation.Controls.Add(this.dateTimePicker2);
             this.grbModifVacation.Controls.Add(this.btnModifVac);
-            this.grbModifVacation.Controls.Add(this.cmdAtelierModif);
+            this.grbModifVacation.Controls.Add(this.cmbAtelierModif);
             this.grbModifVacation.Controls.Add(this.label21);
             this.grbModifVacation.Location = new System.Drawing.Point(786, 547);
             this.grbModifVacation.Name = "grbModifVacation";
@@ -960,13 +976,13 @@
             this.btnModifVac.Text = "Modifier";
             this.btnModifVac.UseVisualStyleBackColor = true;
             // 
-            // cmdAtelierModif
+            // cmbAtelierModif
             // 
-            this.cmdAtelierModif.FormattingEnabled = true;
-            this.cmdAtelierModif.Location = new System.Drawing.Point(98, 33);
-            this.cmdAtelierModif.Name = "cmdAtelierModif";
-            this.cmdAtelierModif.Size = new System.Drawing.Size(151, 21);
-            this.cmdAtelierModif.TabIndex = 1;
+            this.cmbAtelierModif.FormattingEnabled = true;
+            this.cmbAtelierModif.Location = new System.Drawing.Point(98, 33);
+            this.cmbAtelierModif.Name = "cmbAtelierModif";
+            this.cmbAtelierModif.Size = new System.Drawing.Size(151, 21);
+            this.cmbAtelierModif.TabIndex = 1;
             // 
             // label21
             // 
@@ -1147,7 +1163,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.minFin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minDebut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heureDebut)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mumAjoutVacation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAjoutVacation)).EndInit();
             this.grbModifVacation.ResumeLayout(false);
             this.grbModifVacation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.minEnd)).EndInit();
@@ -1233,13 +1249,13 @@
         private System.Windows.Forms.ComboBox cmbAtelierTheme;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button btnModifVac;
-        private System.Windows.Forms.ComboBox cmdAtelierModif;
+        private System.Windows.Forms.ComboBox cmbAtelierModif;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.NumericUpDown numAjoutTheme;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker dateAjoutVacation;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.NumericUpDown mumAjoutVacation;
+        private System.Windows.Forms.NumericUpDown numAjoutVacation;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.NumericUpDown heureFin;
         private System.Windows.Forms.NumericUpDown minFin;

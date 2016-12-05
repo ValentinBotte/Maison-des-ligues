@@ -328,12 +328,34 @@ namespace MaisonDesLigues
                     if (radVacation.Checked == true)
                     {
                         this.gererGroupBox(grbAjoutVacation);
+                        if (UneConnexion.ObtenirDonnesOracle("atelier").Rows.Count > 0)
+                        {
+                            cmbAtelierVacation.DataSource = UneConnexion.ObtenirDonnesOracle("ATELIER");
+                            cmbAtelierVacation.DisplayMember = "LIBELLEATELIER";
+                            cmbAtelierVacation.ValueMember = "ID";
+                            cmbAtelierVacation.Enabled = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Il existe aucun atelier");
+                        }
                     }
                     break;
                 case "radVacModif":
                     if (radVacModif.Checked == true)
                     {
                         this.gererGroupBox(grbModifVacation);
+                        if (UneConnexion.ObtenirDonnesOracle("atelier").Rows.Count > 0)
+                        {
+                            cmbAtelierModif.DataSource = UneConnexion.ObtenirDonnesOracle("ATELIER");
+                            cmbAtelierModif.DisplayMember = "LIBELLEATELIER";
+                            cmbAtelierModif.ValueMember = "ID";
+                            cmbAtelierModif.Enabled = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Il existe aucun atelier");
+                        }
                     }
                     break;
                 default:
@@ -364,6 +386,35 @@ namespace MaisonDesLigues
         private void btnAjoutTheme_Click(object sender, EventArgs e)
         {
             UneConnexion.ajoutTheme(Convert.ToInt32(this.cmbAtelierTheme.SelectedValue), Convert.ToInt32(this.numAjoutTheme.Value), Convert.ToString(this.txtAjoutTheme.Text));
+        }
+
+        private void btnAjoutVacation_Click(object sender, EventArgs e)
+        {
+
+            /**Lors du clique bouton, les date et heure de vacation sont convertis en chaîne de caractères afins de les passer en paramètres
+             * de la méthode ajoutvacation**/
+            DateTime dateHeureDebut; ;
+            DateTime dateHeureFin;
+            dateHeureDebut = new DateTime(this.dateAjoutVacation.Value.Year, this.dateAjoutVacation.Value.Month, this.dateAjoutVacation.Value.Day, Convert.ToInt32(this.heureDebut.Value), Convert.ToInt32(this.minDebut.Value), 00);
+            dateHeureFin = new DateTime(this.dateAjoutVacation.Value.Year, this.dateAjoutVacation.Value.Month, this.dateAjoutVacation.Value.Day, Convert.ToInt32(this.heureFin.Value), Convert.ToInt32(this.minFin.Value), 00);
+
+            if (this.dateAjoutVacation.Value != null && this.cmbAtelierVacation.SelectedValue != null && this.numAjoutVacation.Value != 0)
+            {
+                string dDebut = Convert.ToString(dateHeureDebut.Day) + "/" + Convert.ToString(dateHeureDebut.Month) + "/" +
+                    Convert.ToString(dateHeureDebut.Year) + " " + Convert.ToString(dateHeureDebut.Hour) + ":" +
+                    Convert.ToString(dateHeureDebut.Minute) + ":00";
+
+
+                string dFin = Convert.ToString(dateHeureFin.Day) + "/" + Convert.ToString(dateHeureFin.Month) + "/" +
+                    Convert.ToString(dateHeureFin.Year) + " " + Convert.ToString(dateHeureFin.Hour) + ":" +
+                    Convert.ToString(dateHeureFin.Minute) + ":00";
+
+                UneConnexion.ajoutVacation(Convert.ToInt32(this.cmbAtelierVacation.SelectedValue), Convert.ToInt32(this.numAjoutVacation.Value), dDebut, dFin);
+            }
+            else
+            {
+                MessageBox.Show("Merci de renseigner tout les champs");
+            }
         }
     }
 }
