@@ -294,35 +294,6 @@ namespace MaisonDesLigues
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        //private void radGestionTypeTable_changed(object sender, EventArgs e)
-        //{
-        //    switch (((RadioButton)sender).Name)
-        //    {
-        //        case "radAtelier":
-        //            this.GererAjoutAtelier();
-        //            break;
-        //        case "radTheme":
-        //            if (radTheme.Checked == true)
-        //            {
-        //                this.GererAjoutTheme();
-        //            }
-        //            break;
-        //        case "radVacation":
-        //            if (radVacation.Checked == true)
-        //            {
-        //                this.GererAjoutVacation();
-        //            }
-        //            break;
-        //        case "radVacModif":
-        //            if (radVacModif.Checked == true)
-        //            {
-        //                this.GererModifVacation();
-        //            }
-        //            break;
-        //        default:
-        //            throw new Exception("Erreur interne à l'application");
-        //    }
-        //}
         private void radGestionTypeTable_changed(object sender, EventArgs e)
         {
             switch (((RadioButton)sender).Name)
