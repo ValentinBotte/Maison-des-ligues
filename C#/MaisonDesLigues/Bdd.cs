@@ -360,5 +360,59 @@ namespace BaseDeDonnees
 
         }
 
+        /// <summary>
+        /// Fonction permettant d'ajouter un nouvel atelier
+        /// </summary>
+        /// <param name="Libelle">Libelle de l'atelier</param>
+        /// <param name="NbPlacesMaxi">Nombre de places que peut accueillir l'atelier</param>
+        public void ajoutAtelier(string Libelle, int NbPlacesMaxi)
+        {
+
+            UneOracleCommand = new OracleCommand("insertionAtelier", CnOracle);
+            UneOracleCommand.CommandType = CommandType.StoredProcedure;
+            this.ParamNouvelAtelier(UneOracleCommand, Libelle, NbPlacesMaxi);
+            UneOracleCommand.ExecuteNonQuery();
+            MessageBox.Show("ajout atelier effectuée");
+        }
+        /// <summary>
+        /// Fonction permettant d'ajouter un theme
+        /// </summary>
+        /// <param name="idAtelier">Id de l'atelier concerné par le nouveau theme</param>
+        /// <param name="numero">Numéro du thème</param>
+        /// <param name="libelleTheme">Libelle du thème</param>
+        public void ajoutTheme(int idAtelier, int numero, string libelleTheme)
+        {
+            UneOracleCommand = new OracleCommand("insertiontheme", CnOracle);
+            UneOracleCommand.CommandType = CommandType.StoredProcedure;
+            this.ParamNouveauTheme(UneOracleCommand, idAtelier, numero, libelleTheme);
+            UneOracleCommand.ExecuteNonQuery();
+            MessageBox.Show("ajout theme effectuée");
+        }
+
+        /// <summary>
+        /// Paramètres necessaire pour l'ajout d'un atelier, convertis les types c# en types oracles
+        /// </summary>
+        /// <param name="Cmd">Procedure stockée d'ajout d'un atelier"</param>
+        /// <param name="pLibelle">Libelle de l'atelier</param>
+        /// <param name="pNbPlaces">Nombre de places que peut accueillir l'atelier</param>
+        private void ParamNouvelAtelier(OracleCommand Cmd, String pLibelle, int pNbPlaces)
+        {
+            Cmd.Parameters.Add("pLibelle", OracleDbType.Varchar2, ParameterDirection.Input).Value = pLibelle;
+            Cmd.Parameters.Add("pPrenom", OracleDbType.Int64, ParameterDirection.Input).Value = pNbPlaces;
+        }
+
+        /// <summary>
+        /// Paramètres necessaire pour l'ajout d'un nouveau thème, convertis les types c# en types oracles
+        /// </summary>
+        /// <param name="Cmd">Procedure stockée d'ajout d'un nouveau thème</param>
+        /// <param name="pIdAtelier">Id de l'atelier concerné par le nouveau theme</param>
+        /// <param name="pNumero">Numéro du thème</param>
+        /// <param name="pLibelleTheme">Libelle du thème</param>
+        private void ParamNouveauTheme(OracleCommand Cmd, int pIdAtelier, int pNumero, string pLibelleTheme)
+        {
+            Cmd.Parameters.Add("pIdAtelier", OracleDbType.Int32, ParameterDirection.Input).Value = pIdAtelier;
+            Cmd.Parameters.Add("pNumero", OracleDbType.Int32, ParameterDirection.Input).Value = pNumero;
+            Cmd.Parameters.Add("pLibelleTheme", OracleDbType.Varchar2, ParameterDirection.Input).Value = pLibelleTheme;
+        }
     }
 }

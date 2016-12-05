@@ -21,6 +21,7 @@ namespace MaisonDesLigues
         private Bdd UneConnexion;
         private String TitreApplication;
         private String IdStatutSelectionne = "";
+        private List<GroupBox> listGroupBox = new List<GroupBox>();
         /// <summary>
         /// création et ouverture d'une connexion vers la base de données sur le chargement du formulaire
         /// </summary>
@@ -31,6 +32,11 @@ namespace MaisonDesLigues
             UneConnexion = ((FrmLogin)Owner).UneConnexion;
             TitreApplication = ((FrmLogin)Owner).TitreApplication;
             this.Text = TitreApplication;
+            /// Ajout de Collection de groupeBox pour affichage plus facile .
+            listGroupBox.Add(grbAjoutAtelier);
+            listGroupBox.Add(grbAjoutTheme);
+            listGroupBox.Add(grbAjoutVacation);
+            listGroupBox.Add(grbModifVacation);
         }
         /// <summary>
         /// gestion de l'événement click du bouton quitter.
@@ -299,72 +305,65 @@ namespace MaisonDesLigues
             switch (((RadioButton)sender).Name)
             {
                 case "radAtelier":
-                    this.gererAjoutAtelier();
+                    this.gererGroupBox(grbAjoutAtelier);
                     break;
                 case "radTheme":
                     if (radTheme.Checked == true)
                     {
-                        this.gererAjoutTheme();
+                        this.gererGroupBox(grbAjoutTheme);
+                        if (UneConnexion.ObtenirDonnesOracle("atelier").Rows.Count > 0)
+                        {
+                            cmbAtelierTheme.DataSource = UneConnexion.ObtenirDonnesOracle("ATELIER");
+                            cmbAtelierTheme.DisplayMember = "LIBELLEATELIER";
+                            cmbAtelierTheme.ValueMember = "ID";
+                            cmbAtelierTheme.Enabled = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Il existe aucun atelier");
+                        }
                     }
                     break;
                 case "radVacation":
                     if (radVacation.Checked == true)
                     {
-                        this.gererAjoutVacation();
+                        this.gererGroupBox(grbAjoutVacation);
                     }
                     break;
                 case "radVacModif":
                     if (radVacModif.Checked == true)
                     {
-                        this.gererModifVacation();
+                        this.gererGroupBox(grbModifVacation);
                     }
                     break;
                 default:
                     throw new Exception("Erreur interne à l'application");
             }
         }
-        private void gererAjoutAtelier()
+        private void gererGroupBox(GroupBox gbox)
         {
-            grbModifVacation.Visible = false;
-            grbAjoutAtelier.Visible = true;
-            grbAjoutTheme.Visible = false;
-            grbAjoutVacation.Visible = false;
-        }
-        private void gererAjoutTheme()
-        {
-            grbAjoutAtelier.Visible = false;
-            grbAjoutTheme.Visible = true;
-            grbAjoutVacation.Visible = false;
-            grbModifVacation.Visible = false;
-            grbAjoutTheme.Location = new System.Drawing.Point(46, 145);
-
-
-        }
-        private void gererAjoutVacation()
-        {
-            grbAjoutAtelier.Visible = false;
-            grbAjoutTheme.Visible = false;
-            grbAjoutVacation.Visible = true;
-            grbModifVacation.Visible = false;
-            grbAjoutVacation.Location = new System.Drawing.Point(46, 145);
-
-
-        }
-        private void gererModifVacation()
-        {
-            grbAjoutAtelier.Visible = false;
-            grbAjoutTheme.Visible = false;
-            grbAjoutVacation.Visible = false;
-            grbModifVacation.Visible = true;
-            grbModifVacation.Location = new System.Drawing.Point(46, 145);
-
-        }
-
-        private void radAtelier_CheckedChanged(object sender, EventArgs e)
-        {
-
+            this.listGroupBox.ForEach(x => x.Hide());
+            gbox.Visible = true;
+            gbox.Location = new System.Drawing.Point(46, 145);
         }
 
 
+        private void btnAjouterAtelier_Click(object sender, EventArgs e)
+        {
+            if (this.txtLibelleAtelier.Text.Length > 0 && Convert.ToInt32(this.numAtPlacesMax.Value) > 0)
+            {
+                UneConnexion.ajoutAtelier(Convert.ToString(this.txtLibelleAtelier.Text), Convert.ToInt32(this.numAtPlacesMax.Value));
+
+            }
+            else
+            {
+                MessageBox.Show("Merci de renseigner tout les champs");
+            }
+        }
+
+        private void btnAjoutTheme_Click(object sender, EventArgs e)
+        {
+            UneConnexion.ajoutTheme(Convert.ToInt32(this.cmbAtelierTheme.SelectedValue), Convert.ToInt32(this.numAjoutTheme.Value), Convert.ToString(this.txtAjoutTheme.Text));
+        }
     }
 }
