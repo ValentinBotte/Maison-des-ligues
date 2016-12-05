@@ -403,7 +403,38 @@ namespace BaseDeDonnees
             UneOracleCommand.ExecuteNonQuery();
             MessageBox.Show("ajout vacation effectuée");
         }
+        /// <summary>
+        /// Fonction permettant de modifier les dates et heures d'une vacation
+        /// </summary>
+        /// <param name="idAtelier">id de l'atelier concernée</param>
+        /// <param name="dateHeureDebut">date et heure de début</param>
+        /// <param name="dateHeureFin">date et heure de fin</param>
+        public void modifVacation(int idAtelier, int numero, string dateHeureDebut, string dateHeureFin)
+        {
+            UneOracleCommand = new OracleCommand("modificationvacation", CnOracle);
+            UneOracleCommand.CommandType = CommandType.StoredProcedure;
+            this.ParamModifVacation(UneOracleCommand, idAtelier, dateHeureDebut, dateHeureFin, numero);
+            UneOracleCommand.ExecuteNonQuery();
+            MessageBox.Show("Modification de la vacation effectuée");
+        }
 
+
+        /// <summary>
+        /// Pramètres necessaire pour une modification d'une vacation, convertis les types c# en types oracles
+        /// </summary>
+        /// <param name="Cmd">Procedure stockée d'une modification d'une vacationr</param>
+        /// <param name="pIdAtelier">id de l'atelier concernée</param>
+        /// <param name="pHeureDebut">date et heure de début</param>
+        /// <param name="pHeureFin">date et heure de fin</param>
+        /// <param name="pNumero">id de la vacation concernée</param>
+        private void ParamModifVacation(OracleCommand Cmd, int pIdAtelier, string pHeureDebut, string pHeureFin, int pNumero)
+        {
+            Cmd.Parameters.Add("pIdAtelier", OracleDbType.Int64, ParameterDirection.Input).Value = pIdAtelier;
+            Cmd.Parameters.Add("pNumero", OracleDbType.Int64, ParameterDirection.Input).Value = pNumero;
+            Cmd.Parameters.Add("pHeureDebut", OracleDbType.Varchar2, ParameterDirection.Input).Value = pHeureDebut;
+            Cmd.Parameters.Add("pHeureFin", OracleDbType.Varchar2, ParameterDirection.Input).Value = pHeureFin;
+
+        }
         /// <summary>
         /// Paramètres necessaire pour l'ajout d'un atelier, convertis les types c# en types oracles
         /// </summary>
