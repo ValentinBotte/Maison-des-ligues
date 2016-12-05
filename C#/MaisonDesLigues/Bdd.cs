@@ -388,6 +388,21 @@ namespace BaseDeDonnees
             UneOracleCommand.ExecuteNonQuery();
             MessageBox.Show("ajout theme effectuée");
         }
+        /// <summary>
+        /// Fonction permettant d'ajouter une vacation
+        /// </summary>
+        /// <param name="idAtelier">Id de l'atelier concernée</param>
+        /// <param name="numero">Numéro du thème</param>
+        /// <param name="dateHeureDebut">Date et heure de début de la vacation</param>
+        /// <param name="dateHeurefin">Date et heure de fin de la vacation</param>
+        public void ajoutVacation(int idAtelier, int numero, string dateHeureDebut, string dateHeurefin)
+        {
+            UneOracleCommand = new OracleCommand("insertionvacation", CnOracle);
+            UneOracleCommand.CommandType = CommandType.StoredProcedure;
+            this.ParamNouvelVacation(UneOracleCommand, idAtelier, numero, dateHeureDebut, dateHeurefin);
+            UneOracleCommand.ExecuteNonQuery();
+            MessageBox.Show("ajout vacation effectuée");
+        }
 
         /// <summary>
         /// Paramètres necessaire pour l'ajout d'un atelier, convertis les types c# en types oracles
@@ -413,6 +428,22 @@ namespace BaseDeDonnees
             Cmd.Parameters.Add("pIdAtelier", OracleDbType.Int32, ParameterDirection.Input).Value = pIdAtelier;
             Cmd.Parameters.Add("pNumero", OracleDbType.Int32, ParameterDirection.Input).Value = pNumero;
             Cmd.Parameters.Add("pLibelleTheme", OracleDbType.Varchar2, ParameterDirection.Input).Value = pLibelleTheme;
+        }
+
+        /// <summary>
+        /// Paramètres necessaire pour l'ajout d'une nouvelle vacation, convertis les types c# en types oracles
+        /// </summary>
+        /// <param name="Cmd">Id de l'atelier concernée</param>
+        /// <param name="pIdAtelier">Id de l'atelier concernée</param>
+        /// <param name="pNumero">Numéro du thème</param>
+        /// <param name="pHeureDebut">Date et heure de début de la vacation</param>
+        /// <param name="pHeureFin">Date et heure de fin de la vacation</param>
+        private void ParamNouvelVacation(OracleCommand Cmd, int pIdAtelier, int pNumero, string pHeureDebut, string pHeureFin)
+        {
+            Cmd.Parameters.Add("pIdAtelier", OracleDbType.Int64, ParameterDirection.Input).Value = pIdAtelier;
+            Cmd.Parameters.Add("pNumero", OracleDbType.Int64, ParameterDirection.Input).Value = pNumero;
+            Cmd.Parameters.Add("pHeureDebut", OracleDbType.Varchar2, ParameterDirection.Input).Value = pHeureDebut;
+            Cmd.Parameters.Add("pHeureFin", OracleDbType.Varchar2, ParameterDirection.Input).Value = pHeureFin;
         }
     }
 }
