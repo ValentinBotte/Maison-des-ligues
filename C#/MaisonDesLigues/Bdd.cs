@@ -376,7 +376,7 @@ namespace BaseDeDonnees
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -398,7 +398,7 @@ namespace BaseDeDonnees
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -420,7 +420,7 @@ namespace BaseDeDonnees
                 MessageBox.Show("ajout vacation effectuée");
             } catch(Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message,"Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
@@ -442,7 +442,7 @@ namespace BaseDeDonnees
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
