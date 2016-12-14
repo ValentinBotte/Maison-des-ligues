@@ -367,12 +367,18 @@ namespace BaseDeDonnees
         /// <param name="NbPlacesMaxi">Nombre de places que peut accueillir l'atelier</param>
         public void ajoutAtelier(string Libelle, int NbPlacesMaxi)
         {
+            try {
+                UneOracleCommand = new OracleCommand("insertionAtelier", CnOracle);
+                UneOracleCommand.CommandType = CommandType.StoredProcedure;
+                this.ParamNouvelAtelier(UneOracleCommand, Libelle, NbPlacesMaxi);
+                UneOracleCommand.ExecuteNonQuery();
+                MessageBox.Show("ajout atelier effectuée");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            UneOracleCommand = new OracleCommand("insertionAtelier", CnOracle);
-            UneOracleCommand.CommandType = CommandType.StoredProcedure;
-            this.ParamNouvelAtelier(UneOracleCommand, Libelle, NbPlacesMaxi);
-            UneOracleCommand.ExecuteNonQuery();
-            MessageBox.Show("ajout atelier effectuée");
         }
         /// <summary>
         /// Fonction permettant d'ajouter un theme
@@ -382,11 +388,19 @@ namespace BaseDeDonnees
         /// <param name="libelleTheme">Libelle du thème</param>
         public void ajoutTheme(int idAtelier, int numero, string libelleTheme)
         {
-            UneOracleCommand = new OracleCommand("insertiontheme", CnOracle);
-            UneOracleCommand.CommandType = CommandType.StoredProcedure;
-            this.ParamNouveauTheme(UneOracleCommand, idAtelier, numero, libelleTheme);
-            UneOracleCommand.ExecuteNonQuery();
-            MessageBox.Show("ajout theme effectuée");
+            try
+            {
+                UneOracleCommand = new OracleCommand("insertiontheme", CnOracle);
+                UneOracleCommand.CommandType = CommandType.StoredProcedure;
+                this.ParamNouveauTheme(UneOracleCommand, idAtelier, numero, libelleTheme);
+                UneOracleCommand.ExecuteNonQuery();
+                MessageBox.Show("ajout theme effectuée");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
         /// <summary>
         /// Fonction permettant d'ajouter une vacation
@@ -397,13 +411,59 @@ namespace BaseDeDonnees
         /// <param name="dateHeurefin">Date et heure de fin de la vacation</param>
         public void ajoutVacation(int idAtelier, int numero, string dateHeureDebut, string dateHeurefin)
         {
-            UneOracleCommand = new OracleCommand("insertionvacation", CnOracle);
-            UneOracleCommand.CommandType = CommandType.StoredProcedure;
-            this.ParamNouvelVacation(UneOracleCommand, idAtelier, numero, dateHeureDebut, dateHeurefin);
-            UneOracleCommand.ExecuteNonQuery();
-            MessageBox.Show("ajout vacation effectuée");
+            try
+            {
+                UneOracleCommand = new OracleCommand("insertionvacation", CnOracle);
+                UneOracleCommand.CommandType = CommandType.StoredProcedure;
+                this.ParamNouvelVacation(UneOracleCommand, idAtelier, numero, dateHeureDebut, dateHeurefin);
+                UneOracleCommand.ExecuteNonQuery();
+                MessageBox.Show("ajout vacation effectuée");
+            } catch(Exception e)
+            {
+                MessageBox.Show(e.Message,"Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
+        /// <summary>
+        /// Fonction permettant de modifier les dates et heures d'une vacation
+        /// </summary>
+        /// <param name="idAtelier">id de l'atelier concernée</param>
+        /// <param name="dateHeureDebut">date et heure de début</param>
+        /// <param name="dateHeureFin">date et heure de fin</param>
+        public void modifVacation(int idAtelier, int numero, string dateHeureDebut, string dateHeureFin)
+        {
+            try
+            {
+                UneOracleCommand = new OracleCommand("modificationvacation", CnOracle);
+                UneOracleCommand.CommandType = CommandType.StoredProcedure;
+                this.ParamModifVacation(UneOracleCommand, idAtelier, dateHeureDebut, dateHeureFin, numero);
+                UneOracleCommand.ExecuteNonQuery();
+                MessageBox.Show("Modification de la vacation effectuée");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
+
+        /// <summary>
+        /// Pramètres necessaire pour une modification d'une vacation, convertis les types c# en types oracles
+        /// </summary>
+        /// <param name="Cmd">Procedure stockée d'une modification d'une vacationr</param>
+        /// <param name="pIdAtelier">id de l'atelier concernée</param>
+        /// <param name="pHeureDebut">date et heure de début</param>
+        /// <param name="pHeureFin">date et heure de fin</param>
+        /// <param name="pNumero">id de la vacation concernée</param>
+        private void ParamModifVacation(OracleCommand Cmd, int pIdAtelier, string pHeureDebut, string pHeureFin, int pNumero)
+        {
+            Cmd.Parameters.Add("pIdAtelier", OracleDbType.Int64, ParameterDirection.Input).Value = pIdAtelier;
+            Cmd.Parameters.Add("pNumero", OracleDbType.Int64, ParameterDirection.Input).Value = pNumero;
+            Cmd.Parameters.Add("pHeureDebut", OracleDbType.Varchar2, ParameterDirection.Input).Value = pHeureDebut;
+            Cmd.Parameters.Add("pHeureFin", OracleDbType.Varchar2, ParameterDirection.Input).Value = pHeureFin;
+
+        }
         /// <summary>
         /// Paramètres necessaire pour l'ajout d'un atelier, convertis les types c# en types oracles
         /// </summary>

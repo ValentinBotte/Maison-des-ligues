@@ -416,5 +416,26 @@ namespace MaisonDesLigues
                 MessageBox.Show("Merci de renseigner tout les champs");
             }
         }
+
+        private void btnModifVac_Click(object sender, EventArgs e)
+        {
+            /**Lors du click, les dates et heures de vacations sont convertis en chaîne de caracteres afin de les passer en parametres de la mathode modif vacation.**/
+            DateTime dateHeureDebut; ;
+            DateTime dateHeureFin;
+            dateHeureDebut = new DateTime(this.dateModifVacation.Value.Year, this.dateModifVacation.Value.Month, this.dateModifVacation.Value.Day, Convert.ToInt32(this.heureDeb.Value), Convert.ToInt32(this.minDeb.Value), 00);
+            dateHeureFin = new DateTime(this.dateModifVacation.Value.Year, this.dateModifVacation.Value.Month, this.dateModifVacation.Value.Day, Convert.ToInt32(this.heureEnd.Value), Convert.ToInt32(this.minEnd.Value), 00);
+
+            string dDebut = Convert.ToString(dateHeureDebut.Day) + "/" + Convert.ToString(dateHeureDebut.Month) + "/" +
+                Convert.ToString(dateHeureDebut.Year) + " " + Convert.ToString(dateHeureDebut.Hour) + ":" +
+                Convert.ToString(dateHeureDebut.Minute) + ":00";
+
+
+            string dFin = Convert.ToString(dateHeureFin.Day) + "/" + Convert.ToString(dateHeureFin.Month) + "/" +
+                Convert.ToString(dateHeureFin.Year) + " " + Convert.ToString(dateHeureFin.Hour) + ":" +
+                Convert.ToString(dateHeureFin.Minute) + ":00";
+
+            UneConnexion.modifVacation(Convert.ToInt32(this.cmbAtelierModif.SelectedValue), Convert.ToInt32(this.numModifVacation.Value), dDebut, dFin);
+
+        }
     }
 }

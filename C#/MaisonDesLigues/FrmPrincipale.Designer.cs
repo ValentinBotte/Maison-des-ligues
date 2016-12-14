@@ -100,9 +100,9 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numModifVacation = new System.Windows.Forms.NumericUpDown();
             this.label22 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateModifVacation = new System.Windows.Forms.DateTimePicker();
             this.btnModifVac = new System.Windows.Forms.Button();
             this.cmbAtelierModif = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -119,6 +119,9 @@
             this.radVacation = new System.Windows.Forms.RadioButton();
             this.radTheme = new System.Windows.Forms.RadioButton();
             this.radAtelier = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.TabInscription.SuspendLayout();
             this.GrpBenevole.SuspendLayout();
             this.GrpTypeParticipant.SuspendLayout();
@@ -141,15 +144,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.heureEnd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minDeb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heureDeb)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numModifVacation)).BeginInit();
             this.grbAjoutAtelier.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAtPlacesMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grbGestion.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabInscription
             // 
+            this.TabInscription.Controls.Add(this.groupBox1);
             this.TabInscription.Controls.Add(this.GrpBenevole);
             this.TabInscription.Controls.Add(this.btnQuitter);
             this.TabInscription.Controls.Add(this.GrpTypeParticipant);
@@ -172,7 +177,7 @@
             this.GrpBenevole.Controls.Add(this.label9);
             this.GrpBenevole.Controls.Add(this.label8);
             this.GrpBenevole.Controls.Add(this.TxtDateNaissance);
-            this.GrpBenevole.Location = new System.Drawing.Point(607, 23);
+            this.GrpBenevole.Location = new System.Drawing.Point(643, 16);
             this.GrpBenevole.Name = "GrpBenevole";
             this.GrpBenevole.Size = new System.Drawing.Size(564, 174);
             this.GrpBenevole.TabIndex = 23;
@@ -586,7 +591,7 @@
             this.grbAjoutTheme.Controls.Add(this.btnAjoutTheme);
             this.grbAjoutTheme.Controls.Add(this.cmbAtelierTheme);
             this.grbAjoutTheme.Controls.Add(this.label19);
-            this.grbAjoutTheme.Location = new System.Drawing.Point(701, 283);
+            this.grbAjoutTheme.Location = new System.Drawing.Point(768, 487);
             this.grbAjoutTheme.Name = "grbAjoutTheme";
             this.grbAjoutTheme.Size = new System.Drawing.Size(322, 192);
             this.grbAjoutTheme.TabIndex = 25;
@@ -840,13 +845,13 @@
             this.grbModifVacation.Controls.Add(this.label25);
             this.grbModifVacation.Controls.Add(this.label24);
             this.grbModifVacation.Controls.Add(this.label23);
-            this.grbModifVacation.Controls.Add(this.numericUpDown1);
+            this.grbModifVacation.Controls.Add(this.numModifVacation);
             this.grbModifVacation.Controls.Add(this.label22);
-            this.grbModifVacation.Controls.Add(this.dateTimePicker2);
+            this.grbModifVacation.Controls.Add(this.dateModifVacation);
             this.grbModifVacation.Controls.Add(this.btnModifVac);
             this.grbModifVacation.Controls.Add(this.cmbAtelierModif);
             this.grbModifVacation.Controls.Add(this.label21);
-            this.grbModifVacation.Location = new System.Drawing.Point(786, 547);
+            this.grbModifVacation.Location = new System.Drawing.Point(792, 111);
             this.grbModifVacation.Name = "grbModifVacation";
             this.grbModifVacation.Size = new System.Drawing.Size(564, 339);
             this.grbModifVacation.TabIndex = 26;
@@ -929,23 +934,23 @@
             this.label23.TabIndex = 13;
             this.label23.Text = "Jour :";
             // 
-            // numericUpDown1
+            // numModifVacation
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(98, 75);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numModifVacation.Location = new System.Drawing.Point(98, 75);
+            this.numModifVacation.Maximum = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.numModifVacation.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(92, 20);
-            this.numericUpDown1.TabIndex = 13;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numModifVacation.Name = "numModifVacation";
+            this.numModifVacation.Size = new System.Drawing.Size(92, 20);
+            this.numModifVacation.TabIndex = 13;
+            this.numModifVacation.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -960,12 +965,12 @@
             this.label22.TabIndex = 13;
             this.label22.Text = "Numero :";
             // 
-            // dateTimePicker2
+            // dateModifVacation
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(98, 118);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 13;
+            this.dateModifVacation.Location = new System.Drawing.Point(98, 118);
+            this.dateModifVacation.Name = "dateModifVacation";
+            this.dateModifVacation.Size = new System.Drawing.Size(200, 20);
+            this.dateModifVacation.TabIndex = 13;
             // 
             // btnModifVac
             // 
@@ -975,6 +980,7 @@
             this.btnModifVac.TabIndex = 2;
             this.btnModifVac.Text = "Modifier";
             this.btnModifVac.UseVisualStyleBackColor = true;
+            this.btnModifVac.Click += new System.EventHandler(this.btnModifVac_Click);
             // 
             // cmbAtelierModif
             // 
@@ -1131,6 +1137,34 @@
             this.radAtelier.UseVisualStyleBackColor = true;
             this.radAtelier.CheckedChanged += new System.EventHandler(this.radGestionTypeTable_changed);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.label26);
+            this.groupBox1.Location = new System.Drawing.Point(557, 225);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(466, 405);
+            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "grpLicence";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(49, 43);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(46, 13);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "Qualité :";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(124, 43);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(179, 21);
+            this.comboBox1.TabIndex = 1;
+            // 
             // FrmPrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1170,13 +1204,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.heureEnd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minDeb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heureDeb)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numModifVacation)).EndInit();
             this.grbAjoutAtelier.ResumeLayout(false);
             this.grbAjoutAtelier.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAtPlacesMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grbGestion.ResumeLayout(false);
             this.grbGestion.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1270,8 +1306,11 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numModifVacation;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateModifVacation;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label26;
     }
 }
