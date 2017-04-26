@@ -37,6 +37,14 @@ namespace MaisonDesLigues
             listGroupBox.Add(grbAjoutTheme);
             listGroupBox.Add(grbAjoutVacation);
             listGroupBox.Add(grbModifVacation);
+            TxtNom.Text = "";
+            TxtPrenom.Text = "";
+            TxtAdr1.Text = "";
+            TxtAdr2.Text = "";
+            TxtCp.Text = "";
+            TxtVille.Text = "";
+            txtTel.Text = "";
+            TxtMail.Text = "";
         }
         /// <summary>
         /// gestion de l'événement click du bouton quitter.
@@ -61,7 +69,7 @@ namespace MaisonDesLigues
                     this.GererInscriptionBenevole();
                     break;
                 case "RadLicencie":
-                    //this.GererInscriptionLicencie();
+                    this.GererInscriptionLicencie();
                     break;
                 case "RadIntervenant":
                     this.GererInscriptionIntervenant();
@@ -72,12 +80,27 @@ namespace MaisonDesLigues
         }
 
         /// <summary>     
+        /// procédure permettant d'afficher l'interface de saisie du complément d'inscription d'un licencié.
+        /// </summary>
+        private void GererInscriptionLicencie()
+        {
+
+            GrpBenevole.Visible = false;
+            GrpIntervenant.Visible = false;
+            GrpLicence.Visible = true;
+            GrpLicence.Left = 23;
+            GrpLicence.Top = 264;
+
+        }
+
+        /// <summary>     
         /// procédure permettant d'afficher l'interface de saisie du complément d'inscription d'un intervenant.
         /// </summary>
         private void GererInscriptionIntervenant()
         {
 
             GrpBenevole.Visible = false;
+            GrpLicence.Visible = false;
             GrpIntervenant.Visible = true;
             PanFonctionIntervenant.Visible = true;
             GrpIntervenant.Left = 23;
@@ -99,6 +122,7 @@ namespace MaisonDesLigues
             GrpBenevole.Left = 23;
             GrpBenevole.Top = 264;
             GrpIntervenant.Visible = false;
+            GrpLicence.Visible = false;
 
             Utilitaire.CreerDesControles(this, UneConnexion, "VDATEBENEVOLAT01", "ChkDateB_", PanelDispoBenevole, "CheckBox", this.rdbStatutIntervenant_StateChanged);
             // on va tester si le controle à placer est de type CheckBox afin de lui placer un événement checked_changed
@@ -435,6 +459,16 @@ namespace MaisonDesLigues
                 Convert.ToString(dateHeureFin.Minute) + ":00";
 
             UneConnexion.modifVacation(Convert.ToInt32(this.cmbAtelierModif.SelectedValue), Convert.ToInt32(this.numModifVacation.Value), dDebut, dFin);
+
+        }
+
+        private void TxtNom_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GrpIntervenant_Enter(object sender, EventArgs e)
+        {
 
         }
     }

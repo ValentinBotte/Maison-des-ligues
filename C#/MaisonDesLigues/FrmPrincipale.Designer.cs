@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipale));
             this.TabInscription = new System.Windows.Forms.TabPage();
+            this.GrpLicence = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
             this.GrpBenevole = new System.Windows.Forms.GroupBox();
             this.BtnEnregistreBenevole = new System.Windows.Forms.Button();
             this.PanelDispoBenevole = new System.Windows.Forms.Panel();
@@ -119,10 +122,8 @@
             this.radVacation = new System.Windows.Forms.RadioButton();
             this.radTheme = new System.Windows.Forms.RadioButton();
             this.radAtelier = new System.Windows.Forms.RadioButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.TabInscription.SuspendLayout();
+            this.GrpLicence.SuspendLayout();
             this.GrpBenevole.SuspendLayout();
             this.GrpTypeParticipant.SuspendLayout();
             this.GrpIdentite.SuspendLayout();
@@ -149,12 +150,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numAtPlacesMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.grbGestion.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TabInscription
             // 
-            this.TabInscription.Controls.Add(this.groupBox1);
+            this.TabInscription.Controls.Add(this.GrpLicence);
             this.TabInscription.Controls.Add(this.GrpBenevole);
             this.TabInscription.Controls.Add(this.btnQuitter);
             this.TabInscription.Controls.Add(this.GrpTypeParticipant);
@@ -168,6 +168,34 @@
             this.TabInscription.TabIndex = 0;
             this.TabInscription.Text = "Inscription";
             this.TabInscription.UseVisualStyleBackColor = true;
+            // 
+            // GrpLicence
+            // 
+            this.GrpLicence.Controls.Add(this.comboBox1);
+            this.GrpLicence.Controls.Add(this.label26);
+            this.GrpLicence.Location = new System.Drawing.Point(557, 225);
+            this.GrpLicence.Name = "GrpLicence";
+            this.GrpLicence.Size = new System.Drawing.Size(466, 405);
+            this.GrpLicence.TabIndex = 26;
+            this.GrpLicence.TabStop = false;
+            this.GrpLicence.Text = "grpLicence";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(124, 43);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(179, 21);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(49, 43);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(46, 13);
+            this.label26.TabIndex = 0;
+            this.label26.Text = "Qualité :";
             // 
             // GrpBenevole
             // 
@@ -404,6 +432,7 @@
             this.TxtNom.Size = new System.Drawing.Size(142, 20);
             this.TxtNom.TabIndex = 6;
             this.TxtNom.Text = "Dumoulin";
+            this.TxtNom.TextChanged += new System.EventHandler(this.TxtNom_TextChanged);
             // 
             // label5
             // 
@@ -473,6 +502,7 @@
             this.GrpIntervenant.TabStop = false;
             this.GrpIntervenant.Text = "Complément Inscription Intervenant";
             this.GrpIntervenant.Visible = false;
+            this.GrpIntervenant.Enter += new System.EventHandler(this.GrpIntervenant_Enter);
             // 
             // BtnEnregistrerIntervenant
             // 
@@ -1137,34 +1167,6 @@
             this.radAtelier.UseVisualStyleBackColor = true;
             this.radAtelier.CheckedChanged += new System.EventHandler(this.radGestionTypeTable_changed);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label26);
-            this.groupBox1.Location = new System.Drawing.Point(557, 225);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(466, 405);
-            this.groupBox1.TabIndex = 26;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "grpLicence";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(49, 43);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(46, 13);
-            this.label26.TabIndex = 0;
-            this.label26.Text = "Qualité :";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(124, 43);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(179, 21);
-            this.comboBox1.TabIndex = 1;
-            // 
             // FrmPrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1175,6 +1177,8 @@
             this.Name = "FrmPrincipale";
             this.Load += new System.EventHandler(this.FrmPrincipale_Load);
             this.TabInscription.ResumeLayout(false);
+            this.GrpLicence.ResumeLayout(false);
+            this.GrpLicence.PerformLayout();
             this.GrpBenevole.ResumeLayout(false);
             this.GrpBenevole.PerformLayout();
             this.GrpTypeParticipant.ResumeLayout(false);
@@ -1211,8 +1215,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.grbGestion.ResumeLayout(false);
             this.grbGestion.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1309,7 +1311,7 @@
         private System.Windows.Forms.NumericUpDown numModifVacation;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.DateTimePicker dateModifVacation;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox GrpLicence;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label26;
     }
