@@ -68,7 +68,6 @@
             this.PanNuiteIntervenant = new System.Windows.Forms.Panel();
             this.RdbNuiteIntervenantNon = new System.Windows.Forms.RadioButton();
             this.RdbNuiteIntervenantOui = new System.Windows.Forms.RadioButton();
-            this.PanFonctionIntervenant = new System.Windows.Forms.Panel();
             this.CmbAtelierIntervenant = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.TabPrincipal = new System.Windows.Forms.TabControl();
@@ -122,6 +121,7 @@
             this.radVacation = new System.Windows.Forms.RadioButton();
             this.radTheme = new System.Windows.Forms.RadioButton();
             this.radAtelier = new System.Windows.Forms.RadioButton();
+            this.PanFonctionIntervenant = new System.Windows.Forms.Panel();
             this.TabInscription.SuspendLayout();
             this.GrpLicence.SuspendLayout();
             this.GrpBenevole.SuspendLayout();
@@ -490,9 +490,9 @@
             // 
             // GrpIntervenant
             // 
+            this.GrpIntervenant.Controls.Add(this.PanFonctionIntervenant);
             this.GrpIntervenant.Controls.Add(this.BtnEnregistrerIntervenant);
             this.GrpIntervenant.Controls.Add(this.GrpNuiteIntervenant);
-            this.GrpIntervenant.Controls.Add(this.PanFonctionIntervenant);
             this.GrpIntervenant.Controls.Add(this.CmbAtelierIntervenant);
             this.GrpIntervenant.Controls.Add(this.label17);
             this.GrpIntervenant.Location = new System.Drawing.Point(23, 264);
@@ -558,13 +558,6 @@
             this.RdbNuiteIntervenantOui.Text = "Oui";
             this.RdbNuiteIntervenantOui.UseVisualStyleBackColor = true;
             this.RdbNuiteIntervenantOui.CheckedChanged += new System.EventHandler(this.RdbNuiteIntervenant_CheckedChanged);
-            // 
-            // PanFonctionIntervenant
-            // 
-            this.PanFonctionIntervenant.Location = new System.Drawing.Point(305, 4);
-            this.PanFonctionIntervenant.Name = "PanFonctionIntervenant";
-            this.PanFonctionIntervenant.Size = new System.Drawing.Size(168, 41);
-            this.PanFonctionIntervenant.TabIndex = 28;
             // 
             // CmbAtelierIntervenant
             // 
@@ -1167,6 +1160,13 @@
             this.radAtelier.UseVisualStyleBackColor = true;
             this.radAtelier.CheckedChanged += new System.EventHandler(this.radGestionTypeTable_changed);
             // 
+            // PanFonctionIntervenant
+            // 
+            this.PanFonctionIntervenant.Location = new System.Drawing.Point(312, 19);
+            this.PanFonctionIntervenant.Name = "PanFonctionIntervenant";
+            this.PanFonctionIntervenant.Size = new System.Drawing.Size(179, 67);
+            this.PanFonctionIntervenant.TabIndex = 31;
+            // 
             // FrmPrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1257,7 +1257,6 @@
         private System.Windows.Forms.Panel PanNuiteIntervenant;
         private System.Windows.Forms.RadioButton RdbNuiteIntervenantNon;
         private System.Windows.Forms.RadioButton RdbNuiteIntervenantOui;
-        private System.Windows.Forms.Panel PanFonctionIntervenant;
         private System.Windows.Forms.ComboBox CmbAtelierIntervenant;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TabControl TabPrincipal;
@@ -1314,5 +1313,6 @@
         private System.Windows.Forms.GroupBox GrpLicence;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Panel PanFonctionIntervenant;
     }
 }

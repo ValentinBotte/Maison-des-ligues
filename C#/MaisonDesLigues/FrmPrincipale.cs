@@ -32,6 +32,9 @@ namespace MaisonDesLigues
             UneConnexion = ((FrmLogin)Owner).UneConnexion;
             TitreApplication = ((FrmLogin)Owner).TitreApplication;
             this.Text = TitreApplication;
+            GrpBenevole.Visible = false;
+            GrpIntervenant.Visible = false;
+            GrpLicence.Visible = false;
             /// Ajout de Collection de groupeBox pour affichage plus facile .
             listGroupBox.Add(grbAjoutAtelier);
             listGroupBox.Add(grbAjoutTheme);
