@@ -131,6 +131,14 @@ namespace BaseDeDonnees
             Cmd.Parameters.Add("pTel", OracleDbType.Varchar2, ParameterDirection.Input).Value = pTel;
             Cmd.Parameters.Add("pMail", OracleDbType.Varchar2, ParameterDirection.Input).Value = pMail;
         }
+        private void ParamsSpecifiquesLicencie(OracleCommand Cmd, Int16 pIdAtelier, Int32 pQualite, Int64 pNumeroLicence, Int64 pNumCheque, Int64 pMontant)
+        {
+            Cmd.Parameters.Add("pIdAtelier", OracleDbType.Int16, ParameterDirection.Input).Value = pIdAtelier;
+            Cmd.Parameters.Add("pQualite", OracleDbType.Int32, ParameterDirection.Input).Value = pQualite;
+            Cmd.Parameters.Add("pNumeroLicence", OracleDbType.Int64, ParameterDirection.Input).Value = pNumeroLicence;
+            Cmd.Parameters.Add("pNumCheque", OracleDbType.Int64, ParameterDirection.Input).Value = pNumCheque;
+            Cmd.Parameters.Add("pMontantCheque", OracleDbType.Int64, ParameterDirection.Input).Value = pMontant;
+        }
         /// <summary>
         /// procédure qui va se charger d'invoquer la procédure stockée qui ira inscrire un participant de type bénévole
         /// </summary>
@@ -176,6 +184,48 @@ namespace BaseDeDonnees
                 MessageBox.Show("Autre Erreur  \n" + ex.Message);
             }
 
+        }
+        /// <summary>
+        /// Procedure d'inscription d'un licencie sans nuite et sans restauration
+        /// </summary>
+        /// <param name="pNom"></param>
+        /// <param name="pPrenom"></param>
+        /// <param name="pAdresse1"></param>
+        /// <param name="pAdresse2"></param>
+        /// <param name="pCp"></param>
+        /// <param name="pVille"></param>
+        /// <param name="pTel"></param>
+        /// <param name="pMail"></param>
+        /// <param name="pIdAtelier"></param>
+        /// <param name="pNumeroLicence"></param>
+        /// <param name="pQualite"></param>
+        public void InscrireLicencie(String pNom, String pPrenom, String pAdresse1, String pAdresse2, String pCp, String pVille, String pTel, String pMail, Int64 pNumeroLicence, Int32 pQualite, Int16 pIdAtelier, Int64 pNumCheque, Int64 pMontant)
+        {
+            String MessageErreur = "";
+            try
+            {
+
+                UneOracleCommand = new OracleCommand("pckparticipant.nouveaulicencie", CnOracle);
+                UneOracleCommand.CommandType = CommandType.StoredProcedure;
+                // début de la transaction Oracle il vaut mieyx gérer les transactions dans l'applicatif que dans la bd dans les procédures stockées.
+                UneOracleTransaction = this.CnOracle.BeginTransaction();
+                // on appelle la procédure ParamCommunsNouveauxParticipants pour charger les paramètres communs aux intervenants
+                this.ParamCommunsNouveauxParticipants(UneOracleCommand, pNom, pPrenom, pAdresse1, pAdresse2, pCp, pVille, pTel, pMail);
+                // on appelle la procédure ParamsSpecifiquesLicencie pour charger les paramètres communs aux intervenants
+                this.ParamsSpecifiquesLicencie(UneOracleCommand, pIdAtelier, pQualite, pNumeroLicence, pNumCheque, pMontant);
+
+                UneOracleCommand.ExecuteNonQuery();
+                // fin de la transaction. Si on arrive à ce point, c'est qu'aucune exception n'a été levée
+                UneOracleTransaction.Commit();
+            }
+            catch (OracleException Oex)
+            {
+                MessageErreur = "Erreur Oracle \n" + this.GetMessageOracle(Oex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageErreur = "Autre Erreur, les informations n'ont pas été correctement saisies";
+            }
         }
         /// <summary>
         /// méthode privée permettant de valoriser les paramètres d'un objet commmand spécifiques intervenants

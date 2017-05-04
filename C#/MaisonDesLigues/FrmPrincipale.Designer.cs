@@ -31,7 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipale));
             this.TabInscription = new System.Windows.Forms.TabPage();
             this.GrpLicence = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.BtnEnregistrerLicencie = new System.Windows.Forms.Button();
+            this.CmbAtelierLicencie = new System.Windows.Forms.ComboBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.GrpNuiteLicencie = new System.Windows.Forms.GroupBox();
+            this.PanNuiteLicencie = new System.Windows.Forms.Panel();
+            this.RdbNuiteLicencieNon = new System.Windows.Forms.RadioButton();
+            this.RdbNuiteLicencieOui = new System.Windows.Forms.RadioButton();
+            this.CmbQualiteLicencie = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
             this.GrpBenevole = new System.Windows.Forms.GroupBox();
             this.BtnEnregistreBenevole = new System.Windows.Forms.Button();
@@ -63,6 +70,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PicAffiche = new System.Windows.Forms.PictureBox();
             this.GrpIntervenant = new System.Windows.Forms.GroupBox();
+            this.PanFonctionIntervenant = new System.Windows.Forms.Panel();
             this.BtnEnregistrerIntervenant = new System.Windows.Forms.Button();
             this.GrpNuiteIntervenant = new System.Windows.Forms.GroupBox();
             this.PanNuiteIntervenant = new System.Windows.Forms.Panel();
@@ -121,9 +129,11 @@
             this.radVacation = new System.Windows.Forms.RadioButton();
             this.radTheme = new System.Windows.Forms.RadioButton();
             this.radAtelier = new System.Windows.Forms.RadioButton();
-            this.PanFonctionIntervenant = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
+            this.TxtLicenceLicencie = new System.Windows.Forms.MaskedTextBox();
             this.TabInscription.SuspendLayout();
             this.GrpLicence.SuspendLayout();
+            this.GrpNuiteLicencie.SuspendLayout();
             this.GrpBenevole.SuspendLayout();
             this.GrpTypeParticipant.SuspendLayout();
             this.GrpIdentite.SuspendLayout();
@@ -164,34 +174,112 @@
             this.TabInscription.Location = new System.Drawing.Point(4, 22);
             this.TabInscription.Name = "TabInscription";
             this.TabInscription.Padding = new System.Windows.Forms.Padding(3);
-            this.TabInscription.Size = new System.Drawing.Size(1044, 646);
+            this.TabInscription.Size = new System.Drawing.Size(1149, 646);
             this.TabInscription.TabIndex = 0;
             this.TabInscription.Text = "Inscription";
             this.TabInscription.UseVisualStyleBackColor = true;
             // 
             // GrpLicence
             // 
-            this.GrpLicence.Controls.Add(this.comboBox1);
+            this.GrpLicence.Controls.Add(this.TxtLicenceLicencie);
+            this.GrpLicence.Controls.Add(this.label28);
+            this.GrpLicence.Controls.Add(this.BtnEnregistrerLicencie);
+            this.GrpLicence.Controls.Add(this.CmbAtelierLicencie);
+            this.GrpLicence.Controls.Add(this.label27);
+            this.GrpLicence.Controls.Add(this.GrpNuiteLicencie);
+            this.GrpLicence.Controls.Add(this.CmbQualiteLicencie);
             this.GrpLicence.Controls.Add(this.label26);
             this.GrpLicence.Location = new System.Drawing.Point(557, 225);
             this.GrpLicence.Name = "GrpLicence";
-            this.GrpLicence.Size = new System.Drawing.Size(466, 405);
+            this.GrpLicence.Size = new System.Drawing.Size(554, 405);
             this.GrpLicence.TabIndex = 26;
             this.GrpLicence.TabStop = false;
             this.GrpLicence.Text = "grpLicence";
             // 
-            // comboBox1
+            // BtnEnregistrerLicencie
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(124, 43);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(179, 21);
-            this.comboBox1.TabIndex = 1;
+            this.BtnEnregistrerLicencie.Enabled = false;
+            this.BtnEnregistrerLicencie.Location = new System.Drawing.Point(124, 350);
+            this.BtnEnregistrerLicencie.Name = "BtnEnregistrerLicencie";
+            this.BtnEnregistrerLicencie.Size = new System.Drawing.Size(133, 25);
+            this.BtnEnregistrerLicencie.TabIndex = 33;
+            this.BtnEnregistrerLicencie.Text = "Enregistrer";
+            this.BtnEnregistrerLicencie.UseVisualStyleBackColor = true;
+            // 
+            // CmbAtelierLicencie
+            // 
+            this.CmbAtelierLicencie.FormattingEnabled = true;
+            this.CmbAtelierLicencie.Location = new System.Drawing.Point(124, 75);
+            this.CmbAtelierLicencie.Name = "CmbAtelierLicencie";
+            this.CmbAtelierLicencie.Size = new System.Drawing.Size(218, 21);
+            this.CmbAtelierLicencie.TabIndex = 32;
+            this.CmbAtelierLicencie.TextChanged += new System.EventHandler(this.CmbAtelierLicencie_TextChanged);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(50, 83);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(45, 13);
+            this.label27.TabIndex = 32;
+            this.label27.Text = "Atelier : ";
+            // 
+            // GrpNuiteLicencie
+            // 
+            this.GrpNuiteLicencie.Controls.Add(this.PanNuiteLicencie);
+            this.GrpNuiteLicencie.Controls.Add(this.RdbNuiteLicencieNon);
+            this.GrpNuiteLicencie.Controls.Add(this.RdbNuiteLicencieOui);
+            this.GrpNuiteLicencie.Location = new System.Drawing.Point(6, 158);
+            this.GrpNuiteLicencie.Name = "GrpNuiteLicencie";
+            this.GrpNuiteLicencie.Size = new System.Drawing.Size(497, 151);
+            this.GrpNuiteLicencie.TabIndex = 30;
+            this.GrpNuiteLicencie.TabStop = false;
+            this.GrpNuiteLicencie.Text = "Nuités";
+            // 
+            // PanNuiteLicencie
+            // 
+            this.PanNuiteLicencie.Location = new System.Drawing.Point(3, 43);
+            this.PanNuiteLicencie.Name = "PanNuiteLicencie";
+            this.PanNuiteLicencie.Size = new System.Drawing.Size(494, 102);
+            this.PanNuiteLicencie.TabIndex = 24;
+            this.PanNuiteLicencie.Visible = false;
+            // 
+            // RdbNuiteLicencieNon
+            // 
+            this.RdbNuiteLicencieNon.AutoSize = true;
+            this.RdbNuiteLicencieNon.Checked = true;
+            this.RdbNuiteLicencieNon.Location = new System.Drawing.Point(92, 15);
+            this.RdbNuiteLicencieNon.Name = "RdbNuiteLicencieNon";
+            this.RdbNuiteLicencieNon.Size = new System.Drawing.Size(45, 17);
+            this.RdbNuiteLicencieNon.TabIndex = 23;
+            this.RdbNuiteLicencieNon.TabStop = true;
+            this.RdbNuiteLicencieNon.Text = "Non";
+            this.RdbNuiteLicencieNon.UseVisualStyleBackColor = true;
+            this.RdbNuiteLicencieNon.CheckedChanged += new System.EventHandler(this.RdbNuiteLicencie_CheckedChanged);
+            // 
+            // RdbNuiteLicencieOui
+            // 
+            this.RdbNuiteLicencieOui.AutoSize = true;
+            this.RdbNuiteLicencieOui.Location = new System.Drawing.Point(23, 16);
+            this.RdbNuiteLicencieOui.Name = "RdbNuiteLicencieOui";
+            this.RdbNuiteLicencieOui.Size = new System.Drawing.Size(41, 17);
+            this.RdbNuiteLicencieOui.TabIndex = 22;
+            this.RdbNuiteLicencieOui.Text = "Oui";
+            this.RdbNuiteLicencieOui.UseVisualStyleBackColor = true;
+            this.RdbNuiteLicencieOui.CheckedChanged += new System.EventHandler(this.RdbNuiteLicencie_CheckedChanged);
+            // 
+            // CmbQualiteLicencie
+            // 
+            this.CmbQualiteLicencie.FormattingEnabled = true;
+            this.CmbQualiteLicencie.Location = new System.Drawing.Point(124, 43);
+            this.CmbQualiteLicencie.Name = "CmbQualiteLicencie";
+            this.CmbQualiteLicencie.Size = new System.Drawing.Size(179, 21);
+            this.CmbQualiteLicencie.TabIndex = 1;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(49, 43);
+            this.label26.Location = new System.Drawing.Point(49, 51);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(46, 13);
             this.label26.TabIndex = 0;
@@ -380,7 +468,7 @@
             // txtTel
             // 
             this.txtTel.Location = new System.Drawing.Point(77, 148);
-            this.txtTel.Mask = "00 00 00 00 00 00";
+            this.txtTel.Mask = "00 00 00 00 00 ";
             this.txtTel.Name = "txtTel";
             this.txtTel.Size = new System.Drawing.Size(100, 20);
             this.txtTel.TabIndex = 13;
@@ -504,6 +592,13 @@
             this.GrpIntervenant.Visible = false;
             this.GrpIntervenant.Enter += new System.EventHandler(this.GrpIntervenant_Enter);
             // 
+            // PanFonctionIntervenant
+            // 
+            this.PanFonctionIntervenant.Location = new System.Drawing.Point(312, 19);
+            this.PanFonctionIntervenant.Name = "PanFonctionIntervenant";
+            this.PanFonctionIntervenant.Size = new System.Drawing.Size(179, 67);
+            this.PanFonctionIntervenant.TabIndex = 31;
+            // 
             // BtnEnregistrerIntervenant
             // 
             this.BtnEnregistrerIntervenant.Enabled = false;
@@ -566,6 +661,7 @@
             this.CmbAtelierIntervenant.Name = "CmbAtelierIntervenant";
             this.CmbAtelierIntervenant.Size = new System.Drawing.Size(218, 21);
             this.CmbAtelierIntervenant.TabIndex = 26;
+            this.CmbAtelierIntervenant.SelectedIndexChanged += new System.EventHandler(this.CmbAtelierIntervenant_SelectedIndexChanged);
             this.CmbAtelierIntervenant.TextChanged += new System.EventHandler(this.CmbAtelierIntervenant_TextChanged);
             // 
             // label17
@@ -585,7 +681,7 @@
             this.TabPrincipal.Location = new System.Drawing.Point(0, 0);
             this.TabPrincipal.Name = "TabPrincipal";
             this.TabPrincipal.SelectedIndex = 0;
-            this.TabPrincipal.Size = new System.Drawing.Size(1052, 672);
+            this.TabPrincipal.Size = new System.Drawing.Size(1157, 672);
             this.TabPrincipal.TabIndex = 0;
             // 
             // tabPage1
@@ -600,7 +696,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1044, 646);
+            this.tabPage1.Size = new System.Drawing.Size(1149, 646);
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "Gestion";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1160,18 +1256,28 @@
             this.radAtelier.UseVisualStyleBackColor = true;
             this.radAtelier.CheckedChanged += new System.EventHandler(this.radGestionTypeTable_changed);
             // 
-            // PanFonctionIntervenant
+            // label28
             // 
-            this.PanFonctionIntervenant.Location = new System.Drawing.Point(312, 19);
-            this.PanFonctionIntervenant.Name = "PanFonctionIntervenant";
-            this.PanFonctionIntervenant.Size = new System.Drawing.Size(179, 67);
-            this.PanFonctionIntervenant.TabIndex = 31;
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(49, 119);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(105, 13);
+            this.label28.TabIndex = 22;
+            this.label28.Text = "Numéro de licence : ";
+            // 
+            // TxtLicenceLicencie
+            // 
+            this.TxtLicenceLicencie.Location = new System.Drawing.Point(160, 112);
+            this.TxtLicenceLicencie.Mask = "000000000000";
+            this.TxtLicenceLicencie.Name = "TxtLicenceLicencie";
+            this.TxtLicenceLicencie.Size = new System.Drawing.Size(147, 20);
+            this.TxtLicenceLicencie.TabIndex = 22;
             // 
             // FrmPrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 672);
+            this.ClientSize = new System.Drawing.Size(1157, 672);
             this.Controls.Add(this.TabPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrincipale";
@@ -1179,6 +1285,8 @@
             this.TabInscription.ResumeLayout(false);
             this.GrpLicence.ResumeLayout(false);
             this.GrpLicence.PerformLayout();
+            this.GrpNuiteLicencie.ResumeLayout(false);
+            this.GrpNuiteLicencie.PerformLayout();
             this.GrpBenevole.ResumeLayout(false);
             this.GrpBenevole.PerformLayout();
             this.GrpTypeParticipant.ResumeLayout(false);
@@ -1311,8 +1419,17 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.DateTimePicker dateModifVacation;
         private System.Windows.Forms.GroupBox GrpLicence;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CmbQualiteLicencie;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Panel PanFonctionIntervenant;
+        private System.Windows.Forms.GroupBox GrpNuiteLicencie;
+        private System.Windows.Forms.Panel PanNuiteLicencie;
+        private System.Windows.Forms.RadioButton RdbNuiteLicencieNon;
+        private System.Windows.Forms.RadioButton RdbNuiteLicencieOui;
+        private System.Windows.Forms.ComboBox CmbAtelierLicencie;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button BtnEnregistrerLicencie;
+        private System.Windows.Forms.MaskedTextBox TxtLicenceLicencie;
+        private System.Windows.Forms.Label label28;
     }
 }
