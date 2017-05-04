@@ -21,6 +21,7 @@ namespace MaisonDesLigues
         private Bdd UneConnexion;
         private String TitreApplication;
         private String IdStatutSelectionne = "";
+        private String IdAtelierSelectionne = "";
         private List<GroupBox> listGroupBox = new List<GroupBox>();
         /// <summary>
         /// création et ouverture d'une connexion vers la base de données sur le chargement du formulaire
@@ -93,9 +94,8 @@ namespace MaisonDesLigues
             GrpLicence.Visible = true;
             GrpLicence.Left = 23;
             GrpLicence.Top = 264;
-            Utilitaire.RemplirComboBox(UneConnexion, CmbAtelierLicencie, "VATELIER01");
+            Utilitaire.CreerDesControles(this, UneConnexion, "VATELIER01", "Rad_", PanFonctionLicencie, "RadioButton", this.rdbStatutLicencie_StateChanged);
             Utilitaire.RemplirComboBox(UneConnexion, CmbQualiteLicencie, "VQUALITE01");
-            CmbAtelierLicencie.Text = "Choisir";
             CmbQualiteLicencie.Text = "Choisir";
         }
 
@@ -153,6 +153,16 @@ namespace MaisonDesLigues
             // stocke dans un membre de niveau form l'identifiant du statut sélectionné (voir règle de nommage des noms des controles : prefixe_Id)
             this.IdStatutSelectionne = ((RadioButton)sender).Name.Split('_')[1];
             BtnEnregistrerIntervenant.Enabled = VerifBtnEnregistreIntervenant();
+        }
+        /// <summary>
+        /// permet d'appeler la méthode VerifBtnEnregistreIntervenant qui déterminera le statu du bouton BtnEnregistrerIntervenant
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rdbStatutLicencie_StateChanged(object sender, EventArgs e)
+        {
+            // stocke dans un membre de niveau form l'identifiant du statut sélectionné (voir règle de nommage des noms des controles : prefixe_Id)
+            this.IdAtelierSelectionne = ((RadioButton)sender).Name.Split('_')[1];
         }
         /// <summary>
         /// Permet d'intercepter le click sur le bouton d'enregistrement d'un bénévole.
@@ -354,7 +364,7 @@ namespace MaisonDesLigues
         /// <returns></returns>
         private Boolean VerifBtnEnregistreLicencie()
         {
-            return CmbAtelierLicencie.Text != "Choisir" && CmbQualiteLicencie.Text != "Choisir";
+            return CmbQualiteLicencie.Text != "Choisir";
         }
         /// <summary>
         /// Méthode permettant de définir le statut activé/désactivé du bouton BtnEnregistrerLicencie
@@ -363,7 +373,7 @@ namespace MaisonDesLigues
         /// <param name="e"></param>
         private void CmbAtelierLicencie_TextChanged(object sender, EventArgs e)
         {
-            BtnEnregistrerLicencie.Enabled = VerifBtnEnregistreLicencie();
+            
         }
 
         /// <summary>
@@ -542,5 +552,37 @@ namespace MaisonDesLigues
         {
 
         }
+
+        private void BtnEnregistrerLicencie_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (RdbNuiteLicencieOui.Checked)
+                {
+                   
+                }
+                else
+                { // inscription sans les nuitées et sans restauration
+                    UneConnexion.InscrireLicencie(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, txtTel.MaskCompleted ? txtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt64(TxtLicenceLicencie.Text), System.Convert.ToInt16(CmbQualiteLicencie.SelectedValue), System.Convert.ToInt32(TxtNumeroCheque.Text), System.Convert.ToInt32(TxtMontantCheque.Text), System.Convert.ToChar("T"));
+                    MessageBox.Show("Inscription Licencié effectuée");
+
+                }
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
+        private void CmbQualiteLicencie_TextChanged(object sender, EventArgs e)
+        {
+            BtnEnregistrerLicencie.Enabled = VerifBtnEnregistreLicencie();
+        }
+
+        private void PanFonctionIntervenant_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
+    
 }

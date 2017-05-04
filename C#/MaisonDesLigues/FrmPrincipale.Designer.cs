@@ -31,8 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipale));
             this.TabInscription = new System.Windows.Forms.TabPage();
             this.GrpLicence = new System.Windows.Forms.GroupBox();
+            this.TxtNumeroCheque = new System.Windows.Forms.MaskedTextBox();
+            this.TxtMontantCheque = new System.Windows.Forms.MaskedTextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.TxtLicenceLicencie = new System.Windows.Forms.MaskedTextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.BtnEnregistrerLicencie = new System.Windows.Forms.Button();
-            this.CmbAtelierLicencie = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.GrpNuiteLicencie = new System.Windows.Forms.GroupBox();
             this.PanNuiteLicencie = new System.Windows.Forms.Panel();
@@ -129,8 +134,7 @@
             this.radVacation = new System.Windows.Forms.RadioButton();
             this.radTheme = new System.Windows.Forms.RadioButton();
             this.radAtelier = new System.Windows.Forms.RadioButton();
-            this.label28 = new System.Windows.Forms.Label();
-            this.TxtLicenceLicencie = new System.Windows.Forms.MaskedTextBox();
+            this.PanFonctionLicencie = new System.Windows.Forms.Panel();
             this.TabInscription.SuspendLayout();
             this.GrpLicence.SuspendLayout();
             this.GrpNuiteLicencie.SuspendLayout();
@@ -174,51 +178,98 @@
             this.TabInscription.Location = new System.Drawing.Point(4, 22);
             this.TabInscription.Name = "TabInscription";
             this.TabInscription.Padding = new System.Windows.Forms.Padding(3);
-            this.TabInscription.Size = new System.Drawing.Size(1149, 646);
+            this.TabInscription.Size = new System.Drawing.Size(1322, 903);
             this.TabInscription.TabIndex = 0;
             this.TabInscription.Text = "Inscription";
             this.TabInscription.UseVisualStyleBackColor = true;
             // 
             // GrpLicence
             // 
+            this.GrpLicence.Controls.Add(this.PanFonctionLicencie);
+            this.GrpLicence.Controls.Add(this.TxtNumeroCheque);
+            this.GrpLicence.Controls.Add(this.TxtMontantCheque);
+            this.GrpLicence.Controls.Add(this.label30);
+            this.GrpLicence.Controls.Add(this.label29);
             this.GrpLicence.Controls.Add(this.TxtLicenceLicencie);
             this.GrpLicence.Controls.Add(this.label28);
             this.GrpLicence.Controls.Add(this.BtnEnregistrerLicencie);
-            this.GrpLicence.Controls.Add(this.CmbAtelierLicencie);
             this.GrpLicence.Controls.Add(this.label27);
             this.GrpLicence.Controls.Add(this.GrpNuiteLicencie);
             this.GrpLicence.Controls.Add(this.CmbQualiteLicencie);
             this.GrpLicence.Controls.Add(this.label26);
             this.GrpLicence.Location = new System.Drawing.Point(557, 225);
             this.GrpLicence.Name = "GrpLicence";
-            this.GrpLicence.Size = new System.Drawing.Size(554, 405);
+            this.GrpLicence.Size = new System.Drawing.Size(721, 523);
             this.GrpLicence.TabIndex = 26;
             this.GrpLicence.TabStop = false;
             this.GrpLicence.Text = "grpLicence";
             // 
+            // TxtNumeroCheque
+            // 
+            this.TxtNumeroCheque.Location = new System.Drawing.Point(527, 136);
+            this.TxtNumeroCheque.Mask = "9999999";
+            this.TxtNumeroCheque.Name = "TxtNumeroCheque";
+            this.TxtNumeroCheque.Size = new System.Drawing.Size(147, 20);
+            this.TxtNumeroCheque.TabIndex = 37;
+            // 
+            // TxtMontantCheque
+            // 
+            this.TxtMontantCheque.Location = new System.Drawing.Point(527, 105);
+            this.TxtMontantCheque.Mask = "999999999";
+            this.TxtMontantCheque.Name = "TxtMontantCheque";
+            this.TxtMontantCheque.Size = new System.Drawing.Size(147, 20);
+            this.TxtMontantCheque.TabIndex = 36;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(399, 143);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(104, 13);
+            this.label30.TabIndex = 35;
+            this.label30.Text = "Numéro du chèque :";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(398, 112);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(106, 13);
+            this.label29.TabIndex = 34;
+            this.label29.Text = "Montant du chèque :";
+            // 
+            // TxtLicenceLicencie
+            // 
+            this.TxtLicenceLicencie.Location = new System.Drawing.Point(527, 76);
+            this.TxtLicenceLicencie.Mask = "000000000000";
+            this.TxtLicenceLicencie.Name = "TxtLicenceLicencie";
+            this.TxtLicenceLicencie.Size = new System.Drawing.Size(147, 20);
+            this.TxtLicenceLicencie.TabIndex = 22;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(398, 83);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(105, 13);
+            this.label28.TabIndex = 22;
+            this.label28.Text = "Numéro de licence : ";
+            // 
             // BtnEnregistrerLicencie
             // 
             this.BtnEnregistrerLicencie.Enabled = false;
-            this.BtnEnregistrerLicencie.Location = new System.Drawing.Point(124, 350);
+            this.BtnEnregistrerLicencie.Location = new System.Drawing.Point(222, 468);
             this.BtnEnregistrerLicencie.Name = "BtnEnregistrerLicencie";
             this.BtnEnregistrerLicencie.Size = new System.Drawing.Size(133, 25);
             this.BtnEnregistrerLicencie.TabIndex = 33;
             this.BtnEnregistrerLicencie.Text = "Enregistrer";
             this.BtnEnregistrerLicencie.UseVisualStyleBackColor = true;
-            // 
-            // CmbAtelierLicencie
-            // 
-            this.CmbAtelierLicencie.FormattingEnabled = true;
-            this.CmbAtelierLicencie.Location = new System.Drawing.Point(124, 75);
-            this.CmbAtelierLicencie.Name = "CmbAtelierLicencie";
-            this.CmbAtelierLicencie.Size = new System.Drawing.Size(218, 21);
-            this.CmbAtelierLicencie.TabIndex = 32;
-            this.CmbAtelierLicencie.TextChanged += new System.EventHandler(this.CmbAtelierLicencie_TextChanged);
+            this.BtnEnregistrerLicencie.Click += new System.EventHandler(this.BtnEnregistrerLicencie_Click);
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(50, 83);
+            this.label27.Location = new System.Drawing.Point(26, 83);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(45, 13);
             this.label27.TabIndex = 32;
@@ -229,7 +280,7 @@
             this.GrpNuiteLicencie.Controls.Add(this.PanNuiteLicencie);
             this.GrpNuiteLicencie.Controls.Add(this.RdbNuiteLicencieNon);
             this.GrpNuiteLicencie.Controls.Add(this.RdbNuiteLicencieOui);
-            this.GrpNuiteLicencie.Location = new System.Drawing.Point(6, 158);
+            this.GrpNuiteLicencie.Location = new System.Drawing.Point(7, 256);
             this.GrpNuiteLicencie.Name = "GrpNuiteLicencie";
             this.GrpNuiteLicencie.Size = new System.Drawing.Size(497, 151);
             this.GrpNuiteLicencie.TabIndex = 30;
@@ -271,15 +322,16 @@
             // CmbQualiteLicencie
             // 
             this.CmbQualiteLicencie.FormattingEnabled = true;
-            this.CmbQualiteLicencie.Location = new System.Drawing.Point(124, 43);
+            this.CmbQualiteLicencie.Location = new System.Drawing.Point(137, 43);
             this.CmbQualiteLicencie.Name = "CmbQualiteLicencie";
             this.CmbQualiteLicencie.Size = new System.Drawing.Size(179, 21);
             this.CmbQualiteLicencie.TabIndex = 1;
+            this.CmbQualiteLicencie.TextChanged += new System.EventHandler(this.CmbQualiteLicencie_TextChanged);
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(49, 51);
+            this.label26.Location = new System.Drawing.Point(26, 51);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(46, 13);
             this.label26.TabIndex = 0;
@@ -598,6 +650,7 @@
             this.PanFonctionIntervenant.Name = "PanFonctionIntervenant";
             this.PanFonctionIntervenant.Size = new System.Drawing.Size(179, 67);
             this.PanFonctionIntervenant.TabIndex = 31;
+            this.PanFonctionIntervenant.Paint += new System.Windows.Forms.PaintEventHandler(this.PanFonctionIntervenant_Paint);
             // 
             // BtnEnregistrerIntervenant
             // 
@@ -681,7 +734,7 @@
             this.TabPrincipal.Location = new System.Drawing.Point(0, 0);
             this.TabPrincipal.Name = "TabPrincipal";
             this.TabPrincipal.SelectedIndex = 0;
-            this.TabPrincipal.Size = new System.Drawing.Size(1157, 672);
+            this.TabPrincipal.Size = new System.Drawing.Size(1330, 929);
             this.TabPrincipal.TabIndex = 0;
             // 
             // tabPage1
@@ -1256,28 +1309,18 @@
             this.radAtelier.UseVisualStyleBackColor = true;
             this.radAtelier.CheckedChanged += new System.EventHandler(this.radGestionTypeTable_changed);
             // 
-            // label28
+            // PanFonctionLicencie
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(49, 119);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(105, 13);
-            this.label28.TabIndex = 22;
-            this.label28.Text = "Numéro de licence : ";
-            // 
-            // TxtLicenceLicencie
-            // 
-            this.TxtLicenceLicencie.Location = new System.Drawing.Point(160, 112);
-            this.TxtLicenceLicencie.Mask = "000000000000";
-            this.TxtLicenceLicencie.Name = "TxtLicenceLicencie";
-            this.TxtLicenceLicencie.Size = new System.Drawing.Size(147, 20);
-            this.TxtLicenceLicencie.TabIndex = 22;
+            this.PanFonctionLicencie.Location = new System.Drawing.Point(77, 83);
+            this.PanFonctionLicencie.Name = "PanFonctionLicencie";
+            this.PanFonctionLicencie.Size = new System.Drawing.Size(207, 67);
+            this.PanFonctionLicencie.TabIndex = 32;
             // 
             // FrmPrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1157, 672);
+            this.ClientSize = new System.Drawing.Size(1330, 929);
             this.Controls.Add(this.TabPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrincipale";
@@ -1426,10 +1469,14 @@
         private System.Windows.Forms.Panel PanNuiteLicencie;
         private System.Windows.Forms.RadioButton RdbNuiteLicencieNon;
         private System.Windows.Forms.RadioButton RdbNuiteLicencieOui;
-        private System.Windows.Forms.ComboBox CmbAtelierLicencie;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button BtnEnregistrerLicencie;
         private System.Windows.Forms.MaskedTextBox TxtLicenceLicencie;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.MaskedTextBox TxtNumeroCheque;
+        private System.Windows.Forms.MaskedTextBox TxtMontantCheque;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Panel PanFonctionLicencie;
     }
 }
