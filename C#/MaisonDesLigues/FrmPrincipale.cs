@@ -94,9 +94,10 @@ namespace MaisonDesLigues
             GrpLicence.Visible = true;
             GrpLicence.Left = 23;
             GrpLicence.Top = 264;
-            Utilitaire.CreerDesControles(this, UneConnexion, "VATELIER01", "Rad_", PanFonctionLicencie, "RadioButton", this.rdbStatutLicencie_StateChanged);
+            Utilitaire.RemplirComboBox(UneConnexion, CmbAtelierLicencie, "VATELIER01");
             Utilitaire.RemplirComboBox(UneConnexion, CmbQualiteLicencie, "VQUALITE01");
             CmbQualiteLicencie.Text = "Choisir";
+            CmbAtelierLicencie.Text = "Choisir";
         }
 
         /// <summary>     
@@ -555,6 +556,8 @@ namespace MaisonDesLigues
 
         private void BtnEnregistrerLicencie_Click(object sender, EventArgs e)
         {
+
+
             try
             {
                 if (RdbNuiteLicencieOui.Checked)
@@ -563,7 +566,7 @@ namespace MaisonDesLigues
                 }
                 else
                 { // inscription sans les nuitées et sans restauration
-                    UneConnexion.InscrireLicencie(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, txtTel.MaskCompleted ? txtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt64(TxtLicenceLicencie.Text), System.Convert.ToInt16(CmbQualiteLicencie.SelectedValue), System.Convert.ToInt32(TxtNumeroCheque.Text), System.Convert.ToInt32(TxtMontantCheque.Text), System.Convert.ToChar("T"));
+                    UneConnexion.InscrireLicencie(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, txtTel.MaskCompleted ? txtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt64(TxtLicenceLicencie.Text), System.Convert.ToInt16(CmbQualiteLicencie.SelectedValue), System.Convert.ToInt32(TxtNumeroCheque.Text), System.Convert.ToInt32(TxtMontantCheque.Text),System.Convert.ToString("Insc"));
                     MessageBox.Show("Inscription Licencié effectuée");
 
                 }
