@@ -21,6 +21,7 @@ namespace MaisonDesLigues
         private Bdd UneConnexion;
         private String TitreApplication;
         private String IdStatutSelectionne = "";
+        private String IdAtelierSelectionne = "";
         private List<GroupBox> listGroupBox = new List<GroupBox>();
         /// <summary>
         /// création et ouverture d'une connexion vers la base de données sur le chargement du formulaire
@@ -32,11 +33,22 @@ namespace MaisonDesLigues
             UneConnexion = ((FrmLogin)Owner).UneConnexion;
             TitreApplication = ((FrmLogin)Owner).TitreApplication;
             this.Text = TitreApplication;
+            GrpBenevole.Visible = false;
+            GrpIntervenant.Visible = false;
+            GrpLicence.Visible = false;
             /// Ajout de Collection de groupeBox pour affichage plus facile .
             listGroupBox.Add(grbAjoutAtelier);
             listGroupBox.Add(grbAjoutTheme);
             listGroupBox.Add(grbAjoutVacation);
             listGroupBox.Add(grbModifVacation);
+            TxtNom.Text = "";
+            TxtPrenom.Text = "";
+            TxtAdr1.Text = "";
+            TxtAdr2.Text = "";
+            TxtCp.Text = "";
+            TxtVille.Text = "";
+            txtTel.Text = "";
+            TxtMail.Text = "";
         }
         /// <summary>
         /// gestion de l'événement click du bouton quitter.
@@ -61,7 +73,7 @@ namespace MaisonDesLigues
                     this.GererInscriptionBenevole();
                     break;
                 case "RadLicencie":
-                    //this.GererInscriptionLicencie();
+                    this.GererInscriptionLicencie();
                     break;
                 case "RadIntervenant":
                     this.GererInscriptionIntervenant();
@@ -72,19 +84,36 @@ namespace MaisonDesLigues
         }
 
         /// <summary>     
+        /// procédure permettant d'afficher l'interface de saisie du complément d'inscription d'un licencié.
+        /// </summary>
+        private void GererInscriptionLicencie()
+        {
+
+            GrpBenevole.Visible = false;
+            GrpIntervenant.Visible = false;
+            GrpLicence.Visible = true;
+            GrpLicence.Left = 23;
+            GrpLicence.Top = 264;
+            Utilitaire.RemplirComboBox(UneConnexion, CmbAtelierLicencie, "VATELIER01");
+            Utilitaire.RemplirComboBox(UneConnexion, CmbQualiteLicencie, "VQUALITE01");
+            CmbQualiteLicencie.Text = "Choisir";
+            CmbAtelierLicencie.Text = "Choisir";
+        }
+
+        /// <summary>     
         /// procédure permettant d'afficher l'interface de saisie du complément d'inscription d'un intervenant.
         /// </summary>
         private void GererInscriptionIntervenant()
         {
 
             GrpBenevole.Visible = false;
+            GrpLicence.Visible = false;
             GrpIntervenant.Visible = true;
             PanFonctionIntervenant.Visible = true;
             GrpIntervenant.Left = 23;
             GrpIntervenant.Top = 264;
             Utilitaire.CreerDesControles(this, UneConnexion, "VSTATUT01", "Rad_", PanFonctionIntervenant, "RadioButton", this.rdbStatutIntervenant_StateChanged);
             Utilitaire.RemplirComboBox(UneConnexion, CmbAtelierIntervenant, "VATELIER01");
-
             CmbAtelierIntervenant.Text = "Choisir";
 
         }
@@ -99,6 +128,7 @@ namespace MaisonDesLigues
             GrpBenevole.Left = 23;
             GrpBenevole.Top = 264;
             GrpIntervenant.Visible = false;
+            GrpLicence.Visible = false;
 
             Utilitaire.CreerDesControles(this, UneConnexion, "VDATEBENEVOLAT01", "ChkDateB_", PanelDispoBenevole, "CheckBox", this.rdbStatutIntervenant_StateChanged);
             // on va tester si le controle à placer est de type CheckBox afin de lui placer un événement checked_changed
@@ -124,6 +154,16 @@ namespace MaisonDesLigues
             // stocke dans un membre de niveau form l'identifiant du statut sélectionné (voir règle de nommage des noms des controles : prefixe_Id)
             this.IdStatutSelectionne = ((RadioButton)sender).Name.Split('_')[1];
             BtnEnregistrerIntervenant.Enabled = VerifBtnEnregistreIntervenant();
+        }
+        /// <summary>
+        /// permet d'appeler la méthode VerifBtnEnregistreIntervenant qui déterminera le statu du bouton BtnEnregistrerIntervenant
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rdbStatutLicencie_StateChanged(object sender, EventArgs e)
+        {
+            // stocke dans un membre de niveau form l'identifiant du statut sélectionné (voir règle de nommage des noms des controles : prefixe_Id)
+            this.IdAtelierSelectionne = ((RadioButton)sender).Name.Split('_')[1];
         }
         /// <summary>
         /// Permet d'intercepter le click sur le bouton d'enregistrement d'un bénévole.
@@ -210,6 +250,44 @@ namespace MaisonDesLigues
         }
 
         /// <summary>
+        /// Méthode qui permet d'afficher ou masquer le controle panel permettant la saisie des nuités d'un intervenant.
+        /// S'il faut rendre visible le panel, on teste si les nuités possibles ont été chargés dans ce panel. Si non, on les charges 
+        /// On charge ici autant de contrôles ResaNuit qu'il y a de nuits possibles
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RdbNuiteLicencie_CheckedChanged(object sender, EventArgs e)
+        {
+            if (((RadioButton)sender).Name == "RdbNuiteLicencieOui")
+            {
+                PanNuiteLicencie.Visible = true;
+                if (PanNuiteLicencie.Controls.Count == 0) // on charge les nuites possibles possibles et on les affiche
+                {
+                    //DataTable LesDateNuites = UneConnexion.ObtenirDonnesOracle("VDATENUITE01");
+                    //foreach(Dat
+                    Dictionary<Int16, String> LesNuites = UneConnexion.ObtenirDatesNuites();
+                    int i = 0;
+                    foreach (KeyValuePair<Int16, String> UneNuite in LesNuites)
+                    {
+                        ComposantNuite.ResaNuite unResaNuit = new ResaNuite(UneConnexion.ObtenirDonnesOracle("VHOTEL01"), (UneConnexion.ObtenirDonnesOracle("VCATEGORIECHAMBRE01")), UneNuite.Value, UneNuite.Key);
+                        unResaNuit.Left = 5;
+                        unResaNuit.Top = 5 + (24 * i++);
+                        unResaNuit.Visible = true;
+                        //unResaNuit.click += new System.EventHandler(ComposantNuite_StateChanged);
+                        PanNuiteLicencie.Controls.Add(unResaNuit);
+                    }
+
+                }
+
+            }
+            else
+            {
+                PanNuiteLicencie.Visible = false;
+
+            }
+        }
+
+        /// <summary>
         /// Cette procédure va appeler la procédure .... qui aura pour but d'enregistrer les éléments 
         /// de l'inscription d'un intervenant, avec éventuellment les nuités à prendre en compte        ///
         /// </summary>
@@ -279,6 +357,24 @@ namespace MaisonDesLigues
         private void CmbAtelierIntervenant_TextChanged(object sender, EventArgs e)
         {
             BtnEnregistrerIntervenant.Enabled = VerifBtnEnregistreIntervenant();
+        }
+        /// <summary>
+        /// Méthode privée testant les contrôles combos
+        /// Cette méthode permetra ensuite de définir l'état du bouton BtnEnregistrerLicencie
+        /// </summary>
+        /// <returns></returns>
+        private Boolean VerifBtnEnregistreLicencie()
+        {
+            return CmbQualiteLicencie.Text != "Choisir";
+        }
+        /// <summary>
+        /// Méthode permettant de définir le statut activé/désactivé du bouton BtnEnregistrerLicencie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CmbAtelierLicencie_TextChanged(object sender, EventArgs e)
+        {
+            
         }
 
         /// <summary>
@@ -437,5 +533,59 @@ namespace MaisonDesLigues
             UneConnexion.modifVacation(Convert.ToInt32(this.cmbAtelierModif.SelectedValue), Convert.ToInt32(this.numModifVacation.Value), dDebut, dFin);
 
         }
+
+        private void TxtNom_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GrpIntervenant_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CmbAtelierIntervenant_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ChkDateBenevole_CheckedChanged(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void BtnEnregistrerLicencie_Click(object sender, EventArgs e)
+        {
+
+
+            try
+            {
+                if (RdbNuiteLicencieOui.Checked)
+                {
+                   
+                }
+                else
+                { // inscription sans les nuitées et sans restauration
+                    UneConnexion.InscrireLicencie(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, txtTel.MaskCompleted ? txtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt64(TxtLicenceLicencie.Text), System.Convert.ToInt16(CmbQualiteLicencie.SelectedValue), System.Convert.ToInt32(TxtNumeroCheque.Text), System.Convert.ToInt32(TxtMontantCheque.Text),System.Convert.ToString("Insc"));
+                    MessageBox.Show("Inscription Licencié effectuée");
+
+                }
+            }
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message);
+            }
+        }
+
+        private void CmbQualiteLicencie_TextChanged(object sender, EventArgs e)
+        {
+            BtnEnregistrerLicencie.Enabled = VerifBtnEnregistreLicencie();
+        }
+
+        private void PanFonctionIntervenant_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
+    
 }

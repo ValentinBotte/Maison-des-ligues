@@ -53,7 +53,7 @@
             this.TxtMdp.PasswordChar = '*';
             this.TxtMdp.Size = new System.Drawing.Size(168, 20);
             this.TxtMdp.TabIndex = 7;
-            this.TxtMdp.Text = "mdl";
+            this.TxtMdp.Text = "Mdl";
             // 
             // LblMdp
             // 
