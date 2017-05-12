@@ -6,6 +6,8 @@ using System.Configuration;
 using System.Collections.ObjectModel;
 using ComposantNuite;
 using BaseDeDonnees;
+using System.Net.Mail;
+
 namespace MaisonDesLigues
 {
     public partial class FrmPrincipale : Form
@@ -322,14 +324,16 @@ namespace MaisonDesLigues
                     else
                     {
                         UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, txtTel.MaskCompleted ? txtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne, CategoriesSelectionnees, HotelsSelectionnes, NuitsSelectionnes);
-                        MessageBox.Show("Inscription intervenant effectuée");
+                        EnvoiMail(TxtMail.Text, "Confirmation inscription", "Vous venez de vous inscrire");
                     }
-                }
+                    MessageBox.Show("Inscription intervenant effectuée");
+                    }
+                
                 else
                 { // inscription sans les nuitées
-                    UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, txtTel.MaskCompleted ? txtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne);
-                    MessageBox.Show("Inscription intervenant effectuée");
-                    
+                   UneConnexion.InscrireIntervenant(TxtNom.Text, TxtPrenom.Text, TxtAdr1.Text, TxtAdr2.Text != "" ? TxtAdr2.Text : null, TxtCp.Text, TxtVille.Text, txtTel.MaskCompleted ? txtTel.Text : null, TxtMail.Text != "" ? TxtMail.Text : null, System.Convert.ToInt16(CmbAtelierIntervenant.SelectedValue), this.IdStatutSelectionne);
+                   EnvoiMail(TxtMail.Text, "Confirmation inscription", "Vous venez de vous inscrire");
+
                 }
 
                 
@@ -585,6 +589,22 @@ namespace MaisonDesLigues
         private void PanFonctionIntervenant_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+        private void EnvoiMail(String emailTo, String objet, String message)
+        {
+            MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+            mail.From = new MailAddress("mdlbona2017@gmail.com");
+            mail.To.Add(emailTo);
+            mail.Subject = objet;
+            mail.Body = message;
+
+            SmtpServer.Port = 587;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("mdlbona2017@gmail.com", "Azertyuiop123456789");
+            SmtpServer.EnableSsl = true;
+
+            SmtpServer.Send(mail);
         }
     }
     

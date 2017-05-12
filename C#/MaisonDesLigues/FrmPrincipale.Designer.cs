@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipale));
             this.TabInscription = new System.Windows.Forms.TabPage();
             this.GrpLicence = new System.Windows.Forms.GroupBox();
+            this.CmbAtelierLicencie = new System.Windows.Forms.ComboBox();
             this.TxtNumeroCheque = new System.Windows.Forms.MaskedTextBox();
             this.TxtMontantCheque = new System.Windows.Forms.MaskedTextBox();
             this.label30 = new System.Windows.Forms.Label();
@@ -134,7 +135,6 @@
             this.radVacation = new System.Windows.Forms.RadioButton();
             this.radTheme = new System.Windows.Forms.RadioButton();
             this.radAtelier = new System.Windows.Forms.RadioButton();
-            this.CmbAtelierLicencie = new System.Windows.Forms.ComboBox();
             this.TabInscription.SuspendLayout();
             this.GrpLicence.SuspendLayout();
             this.GrpNuiteLicencie.SuspendLayout();
@@ -178,7 +178,7 @@
             this.TabInscription.Location = new System.Drawing.Point(4, 22);
             this.TabInscription.Name = "TabInscription";
             this.TabInscription.Padding = new System.Windows.Forms.Padding(3);
-            this.TabInscription.Size = new System.Drawing.Size(1322, 903);
+            this.TabInscription.Size = new System.Drawing.Size(1322, 839);
             this.TabInscription.TabIndex = 0;
             this.TabInscription.Text = "Inscription";
             this.TabInscription.UseVisualStyleBackColor = true;
@@ -203,6 +203,14 @@
             this.GrpLicence.TabIndex = 26;
             this.GrpLicence.TabStop = false;
             this.GrpLicence.Text = "grpLicence";
+            // 
+            // CmbAtelierLicencie
+            // 
+            this.CmbAtelierLicencie.FormattingEnabled = true;
+            this.CmbAtelierLicencie.Location = new System.Drawing.Point(137, 75);
+            this.CmbAtelierLicencie.Name = "CmbAtelierLicencie";
+            this.CmbAtelierLicencie.Size = new System.Drawing.Size(179, 21);
+            this.CmbAtelierLicencie.TabIndex = 38;
             // 
             // TxtNumeroCheque
             // 
@@ -734,7 +742,7 @@
             this.TabPrincipal.Location = new System.Drawing.Point(0, 0);
             this.TabPrincipal.Name = "TabPrincipal";
             this.TabPrincipal.SelectedIndex = 0;
-            this.TabPrincipal.Size = new System.Drawing.Size(1330, 929);
+            this.TabPrincipal.Size = new System.Drawing.Size(1330, 865);
             this.TabPrincipal.TabIndex = 0;
             // 
             // tabPage1
@@ -1309,19 +1317,11 @@
             this.radAtelier.UseVisualStyleBackColor = true;
             this.radAtelier.CheckedChanged += new System.EventHandler(this.radGestionTypeTable_changed);
             // 
-            // CmbAtelierLicencie
-            // 
-            this.CmbAtelierLicencie.FormattingEnabled = true;
-            this.CmbAtelierLicencie.Location = new System.Drawing.Point(137, 75);
-            this.CmbAtelierLicencie.Name = "CmbAtelierLicencie";
-            this.CmbAtelierLicencie.Size = new System.Drawing.Size(179, 21);
-            this.CmbAtelierLicencie.TabIndex = 38;
-            // 
             // FrmPrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1330, 929);
+            this.ClientSize = new System.Drawing.Size(1330, 865);
             this.Controls.Add(this.TabPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPrincipale";
